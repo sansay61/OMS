@@ -1,0 +1,46 @@
+﻿@model OrderManagementSystem.Areas.OMS.Models.Subj2ratinglinks
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Subj2ratinglinks</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.subjects, "Id", "Shortname"));
+                @Html.ValidationMessageFor(model => model.SubjectId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RatingId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RatingId, new SelectList(ViewBag.ratings, "Id", "Snp"));)
+                @Html.ValidationMessageFor(model => model.RatingId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

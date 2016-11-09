@@ -1,0 +1,18 @@
+﻿@model String
+@{
+    ViewBag.Title = "Managing";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Managing</h2>
+<h3>@Html.Label(@Model.ToString(), new { @class = "label label-default" })</h3>
+@using (Html.BeginForm())
+{
+    
+    <input type="submit" value="Start" name="action" />
+    <input type="submit" value="Restart" name="action" />
+    <input type="submit" value="Stop" name="action" />
+     <input type="submit" value="TestTCR" name="action" />
+     <input type="submit" value="TestER" name="action" />
+}
+

@@ -1,0 +1,133 @@
+﻿@model OrderManagementSystem.Areas.OMS.Models.Limworkinvportduration
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Limworkinvportduration</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrencyId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CurrencyId,(SelectList)ViewBag.currencies)
+                @Html.ValidationMessageFor(model => model.CurrencyId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Minworkcurr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Minworkcurr)
+                @Html.ValidationMessageFor(model => model.Minworkcurr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Minworkportfolio, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Minworkportfolio)
+                @Html.ValidationMessageFor(model => model.Minworkportfolio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Maxinvcurr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Maxinvcurr)
+                @Html.ValidationMessageFor(model => model.Maxinvcurr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Maxinvportfolio, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Maxinvportfolio)
+                @Html.ValidationMessageFor(model => model.Maxinvportfolio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Maxduration, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Maxduration)
+                @Html.ValidationMessageFor(model => model.Maxduration)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Maxvolume, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Maxvolume)
+                @Html.ValidationMessageFor(model => model.Maxvolume)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Startdate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Startdate)
+                @Html.ValidationMessageFor(model => model.Startdate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enddate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Enddate)
+                @Html.ValidationMessageFor(model => model.Enddate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Version)
+                @Html.ValidationMessageFor(model => model.Version)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Iscurrent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Iscurrent)
+                @Html.ValidationMessageFor(model => model.Iscurrent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Chtimestamp, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Chtimestamp)
+                @Html.ValidationMessageFor(model => model.Chtimestamp)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Inid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Inid)
+                @Html.ValidationMessageFor(model => model.Inid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

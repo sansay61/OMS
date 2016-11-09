@@ -1,0 +1,14 @@
+﻿@model string
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Settings</h2>
+@using (Html.BeginForm())
+{
+    @Html.TextArea("cfg",@Model.ToString(),new { @class = "form-control", rows = 16 })
+    <br>
+    <input type="submit"  value="Сохранить"/>
+    
+}

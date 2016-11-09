@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Logging";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Logging</h2>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#events">Events</a></li>
+    <li><a data-toggle="tab" href="#messages">Messages</a></li>
+   
+</ul>
+    <div class="tab-content ">
+    <div id="events" class="tab-pane fade in active">
+        @Html.TextArea("textEvents", @ViewData["events"].ToString(), new { @id="textAreaEvents", @class = "form-control", @style = "max-width:100%;height:500px" })
+    </div>
+    <div id="messages" class="tab-pane fade">
+        @Html.TextArea("textMessages", @ViewData["messages"].ToString(), new { @id = "textAreaMessages", @class = "form-control", @style = "max-width:100%;height:500px" })
+    </div>
+</div>
+
+    
+       

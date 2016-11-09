@@ -1,0 +1,3065 @@
+<fix major="4" minor="4">
+  <header>
+    <field name="BeginString" required="Y"/>
+    <field name="BodyLength" required="Y"/>
+    <field name="MsgType" required="Y"/>
+    <field name="ApplVerID" required="N"/>
+    <field name="CstmApplVerID" required="N"/>
+    <field name="SenderCompID" required="Y"/>
+    <field name="TargetCompID" required="Y"/>
+    <field name="OnBehalfOfCompID" required="N"/>
+    <field name="DeliverToCompID" required="N"/>
+    <field name="MsgSeqNum" required="Y"/>
+    <field name="SenderSubID" required="N"/>
+    <field name="SenderLocationID" required="N"/>
+    <field name="TargetSubID" required="N"/>
+    <field name="TargetLocationID" required="N"/>
+    <field name="OnBehalfOfSubID" required="N"/>
+    <field name="OnBehalfOfLocationID" required="N"/>
+    <field name="DeliverToSubID" required="N"/>
+    <field name="DeliverToLocationID" required="N"/>
+    <field name="PossDupFlag" required="N"/>
+    <field name="PossResend" required="N"/>
+    <field name="SendingTime" required="Y"/>
+    <field name="OrigSendingTime" required="N"/>
+    <field name="XmlDataLen" required="N"/>
+    <field name="XmlData" required="N"/>
+    <field name="MessageEncoding" required="N"/>
+    <field name="LastMsgSeqNumProcessed" required="N"/>
+    <component name="HopGrp" required="N"/>
+  </header>
+  <trailer>
+    <field name="CheckSum" required="Y"/>
+  </trailer>
+  <messages>
+    <message name="Heartbeat" msgtype="0" msgcat="Session">
+      <field name="TestReqID" required="N"/>
+    </message>
+    <message name="TestRequest" msgtype="1" msgcat="Session">
+      <field name="TestReqID" required="Y"/>
+      <field name="MessageEncoding" required="N"/>
+    </message>
+    <message name="ResendRequest" msgtype="2" msgcat="Session">
+      <field name="BeginSeqNo" required="Y"/>
+      <field name="EndSeqNo" required="Y"/>
+      <field name="MessageEncoding" required="N"/>
+    </message>
+    <message name="Reject" msgtype="3" msgcat="Session">
+      <field name="RefSeqNum" required="Y"/>
+      <field name="RefTagID" required="N"/>
+      <field name="RefMsgType" required="N"/>
+      <field name="RefApplVerID" required="N"/>
+      <field name="RefApplExtID" required="N"/>
+      <field name="RefCstmApplVerID" required="N"/>
+      <field name="SessionRejectReason" required="N"/>
+      <field name="Text" required="N"/>
+      <field name="EncodedTextLen" required="N"/>
+      <field name="EncodedText" required="N"/>
+    </message>
+    <message name="SequenceReset" msgtype="4" msgcat="Session">
+      <field name="GapFillFlag" required="N"/>
+      <field name="NewSeqNo" required="Y"/>
+      <field name="MessageEncoding" required="N"/>
+    </message>
+    <message name="Logout" msgtype="5" msgcat="Session">
+      <field name="SessionStatus" required="N"/>
+      <field name="Text" required="N"/>
+      <field name="EncodedTextLen" required="N"/>
+      <field name="EncodedText" required="N"/>
+      <field name="MessageEncoding" required="N"/>
+    </message>
+    <message name="ExecutionReport" msgtype="8" msgcat="SingleGeneralOrderHandling">
+	  <field name="SettlCurrAccruedInterestAmt" required="N"/>
+	  <field name="ISpread" required="N"/>
+	  <field name="ZSpread" required="N"/>
+	  <field name="AssetSwapSpread" required="N"/>
+	  <field name="CustomTag" required="N"/>
+	  <field name="EncodedSecurityDesc" required="N"/>
+	  <field name="EncodedSecurityDescLen" required="N"/>
+      <field name="OrderID" required="Y"/>
+      <field name="SecondaryOrderID" required="N"/>
+      <field name="SecondaryExecID" required="N"/>
+      <field name="ClOrdID" required="N"/>
+      <field name="OrigClOrdID" required="N"/>
+      <field name="HostCrossID" required="N"/>
+      <field name="TotNumReports" required="N"/>
+      <component name="Parties" required="N"/>
+      <field name="ListID" required="N"/>
+      <field name="CrossID" required="N"/>
+      <field name="ExecID" required="Y"/>
+      <field name="ExecRefID" required="N"/>
+      <field name="ExecType" required="Y"/>
+      <field name="OrdStatus" required="Y"/>
+      <field name="OrdRejReason" required="N"/>
+      <field name="ExecRestatementReason" required="N"/>
+      <field name="TrdType" required="N"/>
+      <field name="RegulatoryTransactionType" required="N"/>
+      <component name="RegulatoryTradeIDGrp" required="N"/>
+      <field name="Account" required="N"/>
+      <field name="AcctIDSource" required="N"/>
+      <field name="SettlType" required="N"/>
+      <field name="SettlDate" required="N"/>
+      <component name="Instrument" required="Y"/>
+      <component name="FinancingDetails" required="N"/>
+      <component name="UndInstrmtGrp" required="N"/>
+      <field name="Side" required="Y"/>
+      <component name="Stipulations" required="N"/>
+      <field name="QtyType" required="N"/>
+      <component name="OrderQtyData" required="N"/>
+      <field name="OrdType" required="N"/>
+      <field name="PriceType" required="N"/>
+      <field name="Price" required="N"/>
+      <field name="Currency" required="N"/>
+      <field name="SolicitedFlag" required="N"/>
+      <field name="TimeInForce" required="N"/>
+      <field name="ExpireDate" required="N"/>
+      <field name="ExpireTime" required="N"/>
+      <field name="ExecInst" required="N"/>
+      <field name="AggressorIndicator" required="N"/>
+      <field name="OrderCapacity" required="N"/>
+      <field name="LastQty" required="N"/>
+      <field name="CalculatedCcyLastQty" required="N"/>
+      <field name="LastSwapPoints" required="N"/>
+      <field name="LastQtyVariance" required="N"/>
+      <field name="LastPx" required="N"/>
+      <field name="LastParPx" required="N"/>
+      <field name="LastSpotRate" required="N"/>
+      <field name="LastForwardPoints" required="N"/>
+      <field name="LastMkt" required="N"/>
+      <field name="MarketSegmentID" required="N"/>
+      <field name="LeavesQty" required="Y"/>
+      <field name="CumQty" required="Y"/>
+      <field name="AvgPx" required="Y"/>
+      <field name="TradeDate" required="Y"/>
+      <field name="TransactTime" required="N"/>
+      <component name="CommissionData" required="N"/>
+      <component name="SpreadOrBenchmarkCurveData" required="N"/>
+      <component name="RelativeValueGrp" required="N"/>
+      <component name="YieldData" required="N"/>
+      <field name="GrossTradeAmt" required="N"/>
+      <field name="NumDaysInterest" required="N"/>
+      <field name="AccruedInterestRate" required="N"/>
+      <field name="AccruedInterestAmt" required="N"/>
+      <field name="EndAccruedInterestAmt" required="N"/>
+      <field name="StartCash" required="N"/>
+      <field name="EndCash" required="N"/>
+      <field name="Concession" required="N"/>
+      <field name="NetMoney" required="N"/>
+      <field name="SettlCurrAmt" required="N"/>
+      <field name="SettlCurrency" required="N"/>
+      <component name="RateSource" required="N"/>
+      <field name="SettlCurrFxRate" required="N"/>
+      <field name="SettlCurrFxRateCalc" required="N"/>
+      <field name="HandlInst" required="N"/>
+      <field name="BookingType" required="N"/>
+      <field name="Text" required="N"/>
+      <field name="MultiLegReportingType" required="N"/>
+      <component name="InstrmtLegExecGrp" required="N"/>
+      <field name="CopyMsgIndicator" required="N"/>
+      <component name="MiscFeesGrp" required="N"/>
+      <component name="TrdRegTimestamps" required="N"/>
+      <field name="Volatility" required="N"/>
+      <field name="PriceDelta" required="N"/>
+      <field name="CoverPrice" required="N"/>
+      <field name="AuctionType" required="N"/>
+      <field name="BidPx" required="N"/>
+      <field name="OfferPx" required="N"/>
+      <field name="TradeCondition" required="N"/>
+      <field name="TradeID" required="N"/>
+      <field name="AsOfIndicator" required="N"/>
+      <field name="SecondaryTradeID" required="N"/>
+      <field name="ClearedIndicator" required="N"/>
+      <field name="NumOfCompetitors" required="N"/>
+      <field name="MandatoryClearingIndicator" required="N"/>
+      <field name="RegulatoryReportType" required="N"/>
+      <field name="TradeCollateralization" required="N"/>
+      <field name="TradeContinuation" required="N"/>
+      <field name="RiskLimitCheckStatus" required="N"/>
+      <component name="ClrInstGrp" required="N"/>
+      <field name="PremiumDeliveryDate" required="N"/>
+      <field name="CircleInd" required="N"/>
+      <field name="OriginalQty" required="N"/>
+      <field name="AllocationIndicator" required="N"/>
+      <field name="SalesBook" required="N"/>
+      <field name="TradeCorrectType" required="N"/>
+      <field name="CurrentFace" required="N"/>
+      <field name="SettlCurrAccruedInterestAmt" required="N"/>
+      <field name="SettlCurrNetMoney" required="N"/>
+      <field name="PremiumCurrency" required="N"/>
+      <field name="NetPremiumAmount" required="N"/>
+      <field name="OrderLinkID" required="N"/>
+      <field name="FixingDate" required="N"/>
+      <field name="Tenor" required="N"/>
+      <field name="AdjustedEndCash" required="N"/>
+      <field name="HedgeDirection" required="N"/>
+      <field name="MultilegPartNum" required="N"/>
+      <field name="ActionType" required="N"/>
+	  <field name="Unknown6813" required="N"/>
+      <field name="RecipientRole" required="N"/>
+      <field name="PortfolioName" required="N"/>
+      <field name="HedgeRate" required="N"/>
+      <field name="ExecDeltaHedge" required="N"/>
+      <field name="HedgeTradeType" required="N"/>
+      <field name="MarketType" required="N"/>
+      <field name="HedgeDate" required="N"/>
+      <field name="HedgeAmount" required="N"/>
+      <field name="FlatFlag" required="N"/>
+      <field name="TraderBook" required="N"/>
+      <field name="BLPTicketType" required="N"/>
+      <field name="SwapTradeType" required="N"/>
+      <field name="PricingNo" required="N"/>
+      <field name="Application" required="N"/>
+      <field name="HedgeCalcType" required="N"/>
+      <field name="LastMidPrice" required="N"/>
+      <field name="MidPriceType" required="N"/>
+      <field name="SalesCredit" required="N"/>
+      <field name="MadeAvailableForTradingIndicator" required="N"/>
+      <field name="TypeOfPrice" required="N"/>
+      <field name="MandatoryToClearDF" required="N"/>
+      <field name="AuctionMethod" required="N"/>
+      <field name="AuctionName" required="N"/>
+      <field name="OfferingType" required="N"/>
+      <field name="PreAllocStrategyName" required="N"/>
+      <field name="Ccy1MarketType" required="N"/>
+      <field name="Ccy2MarketType" required="N"/>
+      <field name="ChatID" required="N"/>
+      <field name="RepositoryReportingIndicator" required="N"/>
+      <field name="OptionHashID" required="N"/>
+      <field name="MarkitWireBetaTradeID" required="N"/>
+      <field name="PricedToClearCCP" required="N"/>
+      <field name="MandatoryToClearEMIR" required="N"/>
+      <field name="CalculatedCurrency" required="N"/>
+      <field name="HedgeCurrency" required="N"/>
+      <field name="PremiumSettlCurrAmt" required="N"/>
+      <field name="PremiumSettlCurrency" required="N"/>
+	  <component name="CompDealerQuoteGrp" required="N"/>
+      <component name="RefPriceGrp" required="N"/>
+      <component name="PriceQualifierGrp" required="N"/>
+      <component name="Notes" required="N"/>
+    </message>
+    <message name="TradeCaptureReport" msgtype="AE" msgcat="app">
+    <field name="TradeReportID" required="Y"/>
+	<field name="SettlCurrAccruedInterestAmt" required="N"/>
+	<field name="RejectText" required="N"/>
+	<field name="SettlCurrNetMoney" required="N"/>
+    <field name="TradeReportTransType" required="N"/>
+    <field name="TradeReportType" required="N"/>
+    <field name="TradeRequestID" required="N"/>
+    <field name="TrdType" required="N"/>
+    <field name="TrdSubType" required="N"/>
+    <field name="SecondaryTrdType" required="N"/>
+    <field name="TransferReason" required="N"/>
+    <field name="ExecType" required="N"/>
+    <field name="TotNumTradeReports" required="N"/>
+    <field name="LastRptRequested" required="N"/>
+    <field name="UnsolicitedIndicator" required="N"/>
+    <field name="SubscriptionRequestType" required="N"/>
+    <field name="TradeReportRefID" required="N"/>
+    <field name="SecondaryTradeReportRefID" required="N"/>
+    <field name="SecondaryTradeReportID" required="N"/>
+    <field name="TradeLinkID" required="N"/>
+    <field name="TrdMatchID" required="N"/>
+    <field name="ExecID" required="N"/>
+    <field name="OrdStatus" required="N"/>
+    <field name="SecondaryExecID" required="N"/>
+    <field name="ExecRestatementReason" required="N"/>
+    <field name="PreviouslyReported" required="N"/>
+    <field name="PriceType" required="N"/>
+    <component name="Instrument" required="Y"/>
+    <component name="FinancingDetails" required="N"/>
+    <component name="OrderQtyData" required="N"/>
+    <field name="QtyType" required="N"/>
+    <component name="YieldData" required="N"/>
+    <group name="NoUnderlyings" required="N">
+      <component name="UnderlyingInstrument" required="N"/>
+    </group>
+    <field name="UnderlyingTradingSessionID" required="N"/>
+    <field name="UnderlyingTradingSessionSubID" required="N"/>
+    <field name="LastQty" required="Y"/>
+    <field name="LastPx" required="Y"/>
+    <field name="LastParPx" required="N"/>
+    <field name="LastSpotRate" required="N"/>
+    <field name="LastForwardPoints" required="N"/>
+    <field name="LastMkt" required="N"/>
+    <field name="TradeDate" required="Y"/>
+    <field name="ClearingBusinessDate" required="N"/>
+    <field name="AvgPx" required="N"/>
+    <component name="SpreadOrBenchmarkCurveData" required="N"/>
+    <field name="AvgPxIndicator" required="N"/>
+    <component name="PositionAmountData" required="N"/>
+    <field name="MultiLegReportingType" required="N"/>
+    <field name="TradeLegRefID" required="N"/>
+    <group name="NoLegs" required="N">
+      <component name="InstrumentLeg" required="N"/>
+      <field name="LegQty" required="N"/>
+      <field name="LegSwapType" required="N"/>
+      <component name="LegStipulations" required="N"/>
+      <field name="LegPositionEffect" required="N"/>
+      <field name="LegCoveredOrUncovered" required="N"/>
+      <component name="NestedParties" required="N"/>
+      <field name="LegRefID" required="N"/>
+      <field name="LegPrice" required="N"/>
+      <field name="LegSettlType" required="N"/>
+      <field name="LegSettlDate" required="N"/>
+      <field name="LegLastPx" required="N"/>
+    </group>
+    <field name="TransactTime" required="Y"/>
+    <component name="TrdRegTimestamps" required="N"/>
+    <field name="SettlType" required="N"/>
+    <field name="SettlDate" required="N"/>
+    <field name="MatchStatus" required="N"/>
+    <field name="MatchType" required="N"/>
+    <group name="NoSides" required="Y">
+      <field name="Side" required="Y"/>
+      <field name="OrderID" required="Y"/>
+      <field name="SecondaryOrderID" required="N"/>
+      <field name="ClOrdID" required="N"/>
+      <field name="SecondaryClOrdID" required="N"/>
+      <field name="ListID" required="N"/>
+      <component name="Parties" required="N"/>
+      <field name="Account" required="N"/>
+      <field name="AcctIDSource" required="N"/>
+      <field name="AccountType" required="N"/>
+      <field name="ProcessCode" required="N"/>
+      <field name="OddLot" required="N"/>
+      <group name="NoClearingInstructions" required="N">
+        <field name="ClearingInstruction" required="N"/>
+      </group>
+	  <field name="FlatTag" required="N"/>
+      <field name="ClearingFeeIndicator" required="N"/>
+      <field name="TradeInputSource" required="N"/>
+      <field name="TradeInputDevice" required="N"/>
+      <field name="OrderInputDevice" required="N"/>
+      <field name="Currency" required="N"/>
+      <field name="ComplianceID" required="N"/>
+      <field name="SolicitedFlag" required="N"/>
+      <field name="OrderCapacity" required="N"/>
+      <field name="OrderRestrictions" required="N"/>
+      <field name="CustOrderCapacity" required="N"/>
+      <field name="OrdType" required="N"/>
+      <field name="ExecInst" required="N"/>
+      <field name="TransBkdTime" required="N"/>
+      <field name="TradingSessionID" required="N"/>
+      <field name="TradingSessionSubID" required="N"/>
+      <field name="TimeBracket" required="N"/>
+      <component name="CommissionData" required="N"/>
+      <field name="GrossTradeAmt" required="N"/>
+      <field name="NumDaysInterest" required="N"/>
+      <field name="ExDate" required="N"/>
+      <field name="AccruedInterestRate" required="N"/>
+      <field name="AccruedInterestAmt" required="N"/>
+      <field name="InterestAtMaturity" required="N"/>
+      <field name="EndAccruedInterestAmt" required="N"/>
+      <field name="StartCash" required="N"/>
+      <field name="EndCash" required="N"/>
+      <field name="Concession" required="N"/>
+      <field name="TotalTakedown" required="N"/>
+      <field name="NetMoney" required="N"/>
+      <field name="SettlCurrAmt" required="N"/>
+      <field name="SettlCurrency" required="N"/>
+      <field name="SettlCurrFxRate" required="N"/>
+      <field name="SettlCurrFxRateCalc" required="N"/>
+      <field name="PositionEffect" required="N"/>
+      <field name="Text" required="N"/>
+      <field name="EncodedTextLen" required="N"/>
+      <field name="EncodedText" required="N"/>
+      <field name="SideMultiLegReportingType" required="N"/>
+      <group name="NoContAmts" required="N">
+        <field name="ContAmtType" required="N"/>
+        <field name="ContAmtValue" required="N"/>
+        <field name="ContAmtCurr" required="N"/>
+      </group>
+      <component name="Stipulations" required="N"/>
+      <group name="NoMiscFees" required="N">
+        <field name="MiscFeeAmt" required="N"/>
+        <field name="MiscFeeCurr" required="N"/>
+        <field name="MiscFeeType" required="N"/>
+        <field name="MiscFeeBasis" required="N"/>
+      </group>
+      <field name="ExchangeRule" required="N"/>
+      <field name="TradeAllocIndicator" required="N"/>
+      <field name="PreallocMethod" required="N"/>
+      <field name="AllocID" required="N"/>
+      <group name="NoAllocs" required="N">
+        <field name="AllocAccount" required="N"/>
+        <field name="AllocAcctIDSource" required="N"/>
+        <field name="AllocSettlCurrency" required="N"/>
+        <field name="IndividualAllocID" required="N"/>
+        <component name="NestedParties2" required="N"/>
+        <field name="AllocQty" required="N"/>
+      </group>
+    </group>
+    <field name="CopyMsgIndicator" required="N"/>
+    <field name="PublishTrdIndicator" required="N"/>
+    <field name="ShortSaleReason" required="N"/>
+  </message>
+	<message name="Logon" msgtype="A" msgcat="Session">
+      <field name="EncryptMethod" required="Y"/>
+      <field name="HeartBtInt" required="Y"/>
+    </message>
+    <message name="AllocationInstruction" msgtype="J" msgcat="Allocation">
+      <field name="AllocID" required="Y"/>
+      <field name="AllocTransType" required="Y"/>
+      <field name="AllocType" required="Y"/>
+      <field name="SecondaryAllocID" required="N"/>
+      <field name="RefAllocID" required="N"/>
+      <field name="AllocNoOrdersType" required="Y"/>
+      <component name="OrdAllocGrp" required="N"/>
+      <component name="ExecAllocGrp" required="N"/>
+      <field name="Side" required="Y"/>
+      <component name="Instrument" required="Y"/>
+      <component name="FinancingDetails" required="N"/>
+      <component name="UndInstrmtGrp" required="N"/>
+      <field name="Quantity" required="Y"/>
+      <field name="QtyType" required="N"/>
+      <field name="LastMkt" required="N"/>
+      <field name="PriceType" required="Y"/>
+      <field name="AvgPx" required="N"/>
+      <field name="AvgParPx" required="N"/>
+      <component name="SpreadOrBenchmarkCurveData" required="N"/>
+      <field name="Currency" required="N"/>
+      <field name="AvgPxPrecision" required="N"/>
+      <component name="Parties" required="N"/>
+      <field name="TradeDate" required="Y"/>
+      <field name="TransactTime" required="N"/>
+      <field name="SettlDate" required="N"/>
+      <field name="BookingType" required="N"/>
+      <field name="GrossTradeAmt" required="N"/>
+      <field name="NetMoney" required="N"/>
+      <field name="PositionEffect" required="N"/>
+      <field name="Text" required="N"/>
+      <field name="AccruedInterestAmt" required="N"/>
+      <field name="EndAccruedInterestAmt" required="N"/>
+      <field name="StartCash" required="N"/>
+      <field name="EndCash" required="N"/>
+      <component name="Stipulations" required="N"/>
+      <component name="YieldData" required="N"/>
+      <component name="RegulatoryTradeIDGrp" required="N"/>
+      <component name="AllocGrp" required="N"/>
+      <field name="IncTaxInd" required="N"/>
+      <field name="CopyMsgIndicator" required="N"/>
+      <field name="TradeCollateralization" required="N"/>
+      <field name="RegulatoryTransactionType" required="N"/>
+      <field name="CircleInd" required="N"/>
+      <field name="SalesBook" required="N"/>
+      <field name="CurrentFace" required="N"/>
+      <field name="TaxRate" required="N"/>
+      <field name="Tenor" required="N"/>
+      <field name="BLPProgType" required="N"/>
+      <field name="CalcAgentLocation" required="N"/>
+      <field name="MatrixAgreementType" required="N"/>
+      <field name="ActionType" required="N"/>
+      <field name="TradingSystemTicketNumber" required="N"/>
+      <field name="FlatFlag" required="N"/>
+      <field name="UnsolicitedFlag" required="N"/>
+      <field name="TraderBook" required="N"/>
+      <field name="BLPTicketType" required="N"/>
+      <field name="BLOTSequenceNumber" required="N"/>
+      <component name="PriceQualifierGrp" required="N"/>
+      <component name="Notes" required="Y"/>
+    </message>
+    <message name="BusinessMessageReject" msgtype="j" msgcat="BusinessReject">
+      <field name="RefSeqNum" required="N"/>
+      <field name="RefMsgType" required="Y"/>
+      <field name="BusinessRejectRefID" required="N"/>
+      <field name="BusinessRejectReason" required="Y"/>
+      <field name="Text" required="N"/>
+    </message>
+  </messages>
+  <components>
+    <component name="NestedParties2">
+      <group name="NoNested2PartyIDs" required="N">
+        <field name="Nested2PartyID" required="N"/>
+        <field name="Nested2PartyIDSource" required="N"/>
+        <field name="Nested2PartyRole" required="N"/>
+        <group name="NoNested2PartySubIDs" required="N">
+          <field name="Nested2PartySubID" required="N"/>
+          <field name="Nested2PartySubIDType" required="N"/>
+        </group>
+      </group>
+    </component>
+    <component name="OrderQtyData">
+      <field name="OrderQty" required="N"/>
+      <field name="CashOrderQty" required="N"/>
+      <field name="OrderPercent" required="N"/>
+      <field name="RoundingDirection" required="N"/>
+      <field name="RoundingModulus" required="N"/>
+    </component>
+	<component name="PositionAmountData">
+      <group name="NoPosAmt" required="Y">
+      <field name="PosAmtType" required="Y"/>
+      <field name="PosAmt" required="Y"/>
+      </group>
+    </component>
+    <component name="FinancingDetails">
+        <field name="AgreementDesc" required="N"/>
+		<field name="AgreementID" required="N"/>
+		<field name="AgreementDate" required="N"/>
+		<field name="AgreementCurrency" required="N"/>
+		<field name="TerminationType" required="N"/>
+		<field name="StartDate" required="N"/>
+		<field name="EndDate" required="N"/>
+        <field name="DeliveryType" required="N"/>
+        <field name="MarginRatio" required="N"/>
+    </component>
+    <component name="SettlPtysSubGrp">
+      <group name="NoSettlPartySubIDs" required="N">
+        <field name="SettlPartySubID" required="N"/>
+        <field name="SettlPartySubIDType" required="N"/>
+      </group>
+    </component>
+    <component name="SettlParties">
+      <group name="NoSettlPartyIDs" required="N">
+        <field name="SettlPartyID" required="N"/>
+        <field name="SettlPartyIDSource" required="N"/>
+        <field name="SettlPartyRole" required="N"/>
+        <component name="SettlPtysSubGrp" required="N"/>
+      </group>
+    </component>
+    <component name="LegComplexEventDates">
+      <group name="NoLegComplexEventDates" required="N">
+        <field name="LegComplexEventStartDate" required="N"/>
+        <field name="LegComplexEventEndDate" required="N"/>
+      </group>
+    </component>
+    <component name="LegOptionExerciseDates">
+      <field name="LegOptionExerciseLatestTime" required="N"/>
+      <field name="LegOptionExerciseTimeBusinessCenter" required="N"/>
+      <field name="LegOptionExerciseDeliveryDate" required="N"/>
+    </component>
+    <component name="PaymentStreamResetDates">
+      <field name="PaymentStreamResetFrequencyPeriod" required="N"/>
+      <field name="PaymentStreamResetFrequencyUnit" required="N"/>
+    </component>
+    <component name="PaymentStreamPaymentDates">
+      <field name="PaymentStreamPaymentFrequencyPeriod" required="N"/>
+      <field name="PaymentStreamPaymentFrequencyUnit" required="N"/>
+    </component>
+    <component name="DlvyInstGrp">
+      <group name="NoDlvyInst" required="N">
+        <field name="SettlInstSource" required="N"/>
+        <field name="DlvyInstType" required="N"/>
+        <component name="SettlParties" required="N"/>
+      </group>
+    </component>
+    <component name="LegOptionExercise">
+      <component name="LegOptionExerciseDates" required="N"/>
+    </component>
+    <component name="LegComplexEvents">
+      <group name="NoLegComplexEvents" required="N">
+        <field name="LegComplexEventType" required="N"/>
+        <field name="LegComplexEventPrice" required="N"/>
+        <field name="LegComplexEventPriceTimeType" required="N"/>
+        <field name="LegComplexEventCondition" required="N"/>
+        <component name="LegComplexEventDates" required="N"/>
+        <field name="LegComplexRebate" required="N"/>
+      </group>
+    </component>
+    <component name="LegEvntGrp">
+      <group name="NoLegEvents" required="N">
+        <field name="LegEventType" required="N"/>
+        <field name="LegEventDate" required="N"/>
+        <field name="LegEventTimeUnit" required="N"/>
+        <field name="LegEventTimePeriod" required="N"/>
+      </group>
+    </component>
+    <component name="LegSecurityXML">
+      <field name="LegSecurityXMLLen" required="N"/>
+      <field name="LegSecurityXML" required="N"/>
+      <field name="LegSecurityXMLSchema" required="N"/>
+    </component>
+    <component name="UnderlyingReinvCouponGrp">
+      <group name="NoUnderlyingReinvCoupon" required="N">
+        <field name="UnderlyingReinvCouponDate" required="N"/>
+        <field name="UnderlyingReinvCouponRate" required="N"/>
+        <field name="UnderlyingReinvCouponAmt" required="N"/>
+      </group>
+    </component>
+    <component name="UndlyInstrumentParties">
+      <group name="NoUndlyInstrumentParties" required="N">
+        <field name="UnderlyingInstrumentPartyID" required="N"/>
+        <field name="UnderlyingInstrumentPartyIDSource" required="N"/>
+        <field name="UnderlyingInstrumentPartyRole" required="N"/>
+      </group>
+    </component>
+    <component name="UnderlyingStipulations">
+      <group name="NoUnderlyingStips" required="N">
+        <field name="UnderlyingStipType" required="N"/>
+        <field name="UnderlyingStipValue" required="N"/>
+      </group>
+    </component>
+    <component name="UndSecAltIDGrp">
+      <group name="NoUnderlyingSecurityAltID" required="N">
+        <field name="UnderlyingSecurityAltID" required="N"/>
+        <field name="UnderlyingSecurityAltIDSource" required="N"/>
+      </group>
+    </component>
+    <component name="PaymentStream">
+      <field name="PaymentStreamType" required="N"/>
+      <component name="PaymentStreamPaymentDates" required="N"/>
+      <component name="PaymentStreamResetDates" required="N"/>
+    </component>
+    <component name="StreamCalculationPeriodDates">
+      <field name="StreamFirstRegularPeriodStartDateUnadjusted" required="N"/>
+      <field name="StreamLastRegularPeriodEndDateUnadjusted" required="N"/>
+    </component>
+    <component name="StreamTerminationDate">
+      <field name="StreamTerminationDateAdjusted" required="N"/>
+    </component>
+    <component name="StreamEffectiveDate">
+      <field name="StreamEffectiveDateAdjusted" required="N"/>
+    </component>
+    <component name="ComplexEventDates">
+      <group name="NoComplexEventDates" required="N">
+        <field name="ComplexEventStartDate" required="N"/>
+        <field name="ComplexEventEndDate" required="N"/>
+      </group>
+    </component>
+    <component name="InstrumentPtysSubGrp">
+      <group name="NoInstrumentPartySubIDs" required="N">
+        <field name="InstrumentPartySubID" required="N"/>
+        <field name="InstrumentPartySubIDType" required="N"/>
+      </group>
+    </component>
+    <component name="SettlInstructionsData">
+      <field name="SettlDeliveryType" required="N"/>
+      <field name="StandInstDbType" required="N"/>
+      <field name="StandInstDbName" required="N"/>
+      <field name="StandInstDbID" required="N"/>
+      <component name="DlvyInstGrp" required="N"/>
+    </component>
+    <component name="MiscFeesGrp">
+      <group name="NoMiscFees" required="N">
+        <field name="MiscFeeAmt" required="N"/>
+        <field name="MiscFeeCurr" required="N"/>
+        <field name="MiscFeeType" required="N"/>
+      </group>
+    </component>
+    <component name="CommissionData">
+      <field name="Commission" required="N"/>
+      <field name="CommType" required="N"/>
+    </component>
+    <component name="NestedParties">
+      <group name="NoNestedPartyIDs" required="N">
+        <field name="NestedPartyID" required="N"/>
+        <field name="NestedPartyIDSource" required="N"/>
+        <field name="NestedPartyRole" required="N"/>
+      </group>
+    </component>
+    <component name="AllocRegulatoryTradeIDGrp">
+      <group name="NoAllocRegulatoryTradeIDs" required="N">
+        <field name="AllocRegulatoryTradeID" required="N"/>
+        <field name="AllocRegulatoryTradeIDSource" required="N"/>
+        <field name="AllocRegulatoryTradeIDEvent" required="N"/>
+        <field name="AllocRegulatoryTradeIDType" required="N"/>
+        <field name="AllocRegulatoryLegRefID" required="N"/>
+      </group>
+    </component>
+    <component name="LegFinancingDetails">
+      <field name="LegAgreementDesc" required="N"/>
+      <field name="LegAgreementDate" required="N"/>
+    </component>
+    <component name="LegStipulations">
+      <group name="NoLegStipulations" required="N">
+        <field name="LegStipulationType" required="N"/>
+        <field name="LegStipulationValue" required="N"/>
+      </group>
+    </component>
+    <component name="InstrumentLeg">
+      <field name="LegSymbol" required="N"/>
+      <field name="LegSecurityID" required="N"/>
+      <field name="LegSecurityIDSource" required="N"/>
+      <field name="LegID" required="N"/>
+      <field name="LegProduct" required="N"/>
+      <field name="LegSecurityType" required="N"/>
+      <field name="LegMaturityDate" required="N"/>
+      <field name="LegAttachmentPoint" required="N"/>
+      <field name="LegDetachmentPoint" required="N"/>
+      <field name="LegIndexAnnexDate" required="N"/>
+      <field name="LegStrikePrice" required="N"/>
+      <field name="LegSettlMethod" required="N"/>
+      <field name="LegExerciseStyle" required="N"/>
+      <field name="LegCouponRate" required="N"/>
+      <field name="LegIssuer" required="N"/>
+      <component name="LegSecurityXML" required="N"/>
+      <field name="LegSide" required="N"/>
+      <field name="LegCurrency" required="N"/>
+      <field name="LegPutOrCall" required="N"/>
+      <field name="LegPrice" required="N"/>
+      <component name="LegEvntGrp" required="N"/>
+      <component name="LegComplexEvents" required="N"/>
+      <component name="LegOptionExercise" required="N"/>
+      <field name="LegPutOrCallCurrency" required="N"/>
+      <field name="LegStrategyPosition" required="N"/>
+    </component>
+    <component name="UnderlyingInstrument">
+      <field name="UnderlyingSymbol" required="N"/>
+      <field name="UnderlyingSecurityID" required="N"/>
+      <field name="UnderlyingSecurityIDSource" required="N"/>
+      <component name="UndSecAltIDGrp" required="N"/>
+      <field name="UnderlyingProduct" required="N"/>
+      <field name="UnderlyingSecurityType" required="N"/>
+      <field name="UnderlyingIssuer" required="N"/>
+      <field name="UnderlyingSecurityDesc" required="N"/>
+      <field name="UnderlyingQty" required="N"/>
+      <field name="UnderlyingPx" required="N"/>
+      <field name="UnderlyingDirtyPrice" required="N"/>
+      <field name="UnderlyingEndPrice" required="N"/>
+      <field name="UnderlyingStartValue" required="N"/>
+      <component name="UnderlyingStipulations" required="N"/>
+      <component name="UndlyInstrumentParties" required="N"/>
+      <field name="UnderlyingStartAcrdIntAmt" required="N"/>
+      <field name="UnderlyingEndAcrdIntAmt" required="N"/>
+      <component name="UnderlyingReinvCouponGrp" required="N"/>
+    </component>
+    <component name="OptionExerciseDates">
+      <field name="OptionExerciseLatestTime" required="N"/>
+      <field name="OptionExerciseTimeBusinessCenter" required="N"/>
+      <field name="OptionExerciseDeliveryDate" required="N"/>
+    </component>
+    <component name="PtysSubGrp">
+      <group name="NoPartySubIDs" required="N">
+        <field name="PartySubID" required="N"/>
+        <field name="PartySubIDType" required="N"/>
+      </group>
+    </component>
+    <component name="FinancingContractualDefinitionGrp">
+      <group name="NoContractualDefinitions" required="N">
+        <field name="ContractualDefinition" required="N"/>
+      </group>
+    </component>
+    <component name="StreamGrp">
+      <group name="NoStreams" required="N">
+        <field name="StreamType" required="N"/>
+        <component name="StreamEffectiveDate" required="N"/>
+        <component name="StreamTerminationDate" required="N"/>
+        <component name="StreamCalculationPeriodDates" required="N"/>
+        <component name="PaymentStream" required="N"/>
+      </group>
+    </component>
+    <component name="OptionExercise">
+      <component name="OptionExerciseDates" required="N"/>
+    </component>
+    <component name="DateAdjustment">
+      <field name="BusinessDayConvention" required="N"/>
+      <field name="DateRollConvention" required="N"/>
+    </component>
+    <component name="ComplexEvents">
+      <group name="NoComplexEvents" required="N">
+        <field name="ComplexEventType" required="N"/>
+        <field name="ComplexEventPrice" required="N"/>
+        <field name="ComplexEventPriceTimeType" required="N"/>
+        <field name="ComplexEventCondition" required="N"/>
+        <component name="ComplexEventDates" required="N"/>
+        <field name="ComplexRebate" required="N"/>
+      </group>
+    </component>
+    <component name="InstrumentParties">
+      <group name="NoInstrumentParties" required="N">
+        <field name="InstrumentPartyID" required="N"/>
+        <field name="InstrumentPartyIDSource" required="N"/>
+        <field name="InstrumentPartyRole" required="N"/>
+        <component name="InstrumentPtysSubGrp" required="N"/>
+      </group>
+    </component>
+    <component name="EvntGrp">
+      <group name="NoEvents" required="N">
+        <field name="EventType" required="N"/>
+        <field name="EventDate" required="N"/>
+        <field name="EventTimeUnit" required="N"/>
+        <field name="EventTimePeriod" required="N"/>
+      </group>
+    </component>
+    <component name="SecurityXML">
+      <field name="SecurityXMLLen" required="N"/>
+      <field name="SecurityXML" required="N"/>
+      <field name="SecurityXMLSchema" required="N"/>
+    </component>
+    <component name="SecAltIDGrp">
+      <group name="NoSecurityAltID" required="N">
+        <field name="SecurityAltID" required="N"/>
+        <field name="SecurityAltIDSource" required="N"/>
+      </group>
+    </component>
+    <component name="HopGrp">
+      <group name="NoHops" required="N">
+        <field name="HopCompID" required="N"/>
+        <field name="HopSendingTime" required="N"/>
+        <field name="HopRefID" required="N"/>
+      </group>
+    </component>
+    <component name="AllocGrp">
+      <group name="NoAllocs" required="N">
+        <field name="AllocAccount" required="N"/>
+        <field name="AllocAcctIDSource" required="N"/>
+        <field name="AllocQty" required="N"/>
+        <field name="IndividualAllocID" required="N"/>
+        <component name="AllocRegulatoryTradeIDGrp" required="N"/>
+        <component name="NestedParties" required="N"/>
+        <field name="AllocText" required="N"/>
+        <component name="CommissionData" required="N"/>
+        <field name="AllocAvgPx" required="N"/>
+        <field name="AllocNetMoney" required="N"/>
+        <field name="AllocGrossTradeAmt" required="N"/>
+        <field name="AllocSettlCurrAmt" required="N"/>
+        <field name="AllocSettlCurrency" required="N"/>
+        <field name="SettlCurrFxRate" required="N"/>
+        <field name="SettlCurrFxRateCalc" required="N"/>
+        <field name="AllocAccruedInterestAmt" required="N"/>
+        <component name="MiscFeesGrp" required="N"/>
+        <field name="AllocSettlInstType" required="N"/>
+        <component name="SettlInstructionsData" required="N"/>
+        <field name="AllocCurrentFace" required="N"/>
+        <field name="SettlCurrAccruedInterestAmt" required="N"/>
+        <field name="SettlCurrNetMoney" required="N"/>
+        <field name="OutstandingQty" required="N"/>
+        <field name="AllocAgreementDesc" required="N"/>
+        <field name="AllocAgreementDate" required="N"/>
+        <field name="AllocCalcAgentLocation" required="N"/>
+        <field name="AllocMatrixAgreementType" required="N"/>
+        <field name="AllocMCAAnnexDate" required="N"/>
+        <field name="UpFrontFee" required="N"/>
+        <field name="ActionCode" required="N"/>
+        <field name="TradePurpose" required="N"/>
+      </group>
+    </component>
+    <component name="ExecAllocGrp">
+      <group name="NoExecs" required="N">
+        <field name="LastQty" required="N"/>
+        <field name="ExecID" required="N"/>
+        <field name="LastPx" required="N"/>
+        <field name="TradeID" required="N"/>
+        <field name="TradeVersion" required="N"/>
+        <field name="LastNotional" required="N"/>
+      </group>
+    </component>
+    <component name="OrdAllocGrp">
+      <group name="NoOrders" required="N">
+        <field name="ClOrdID" required="N"/>
+        <field name="OrderID" required="N"/>
+        <field name="SecondaryOrderID" required="N"/>
+        <field name="OrderQty" required="N"/>
+      </group>
+    </component>
+    <component name="Notes">
+      <group name="NoNotes" required="N">
+        <field name="NoteType" required="N"/>
+        <field name="NoteLabel" required="N"/>
+        <field name="NoteText" required="N"/>
+      </group>
+    </component>
+    <component name="PriceQualifierGrp">
+      <group name="NoPriceQualifiers" required="N">
+        <field name="PriceQualifier" required="N"/>
+      </group>
+    </component>
+    <component name="RefPriceGrp">
+      <group name="NoRefPrices" required="N">
+        <field name="RefPrice" required="N"/>
+        <field name="RefPriceType" required="N"/>
+        <field name="RefPriceSource" required="N"/>
+        <field name="RefPriceSide" required="N"/>
+        <field name="RefPriceText" required="N"/>
+        <field name="RefPriceleg2" required="N"/>
+        <field name="RefPriceForwardPoints" required="N"/>
+        <field name="RefPriceSwapPoints" required="N"/>
+      </group>
+    </component>
+    <component name="CompDealerQuoteGrp">
+      <group name="NoCompDealerQuotes" required="N">
+        <field name="CompDealerID" required="N"/>
+        <field name="CompDealerQuotePrice" required="N"/>
+        <field name="CompDealerQuotePriceType" required="N"/>
+        <field name="CompDealerParQuote" required="N"/>
+        <field name="DealerNetMoney" required="N"/>
+        <field name="CompDealerQuotePriceLeg2" required="N"/>
+        <field name="CompDealerQuoteForwardPoints" required="N"/>
+        <field name="CompDealerQuoteSwapPoints" required="N"/>
+        <field name="CompDealerQuoteOrdQty" required="N"/>
+      </group>
+    </component>
+    <component name="ClrInstGrp">
+      <group name="NoClearingInstructions" required="N">
+        <field name="ClearingInstruction" required="N"/>
+      </group>
+    </component>
+    <component name="TrdRegTimestamps">
+      <group name="NoTrdRegTimestamps" required="N">
+        <field name="TrdRegTimestamp" required="N"/>
+        <field name="TrdRegTimestampType" required="N"/>
+      </group>
+    </component>
+    <component name="InstrmtLegExecGrp">
+      <group name="NoLegs" required="N">
+        <component name="InstrumentLeg" required="N"/>
+        <field name="LegQty" required="N"/>
+        <component name="LegStipulations" required="N"/>
+        <field name="LegRefID" required="N"/>
+        <field name="LegSettlType" required="N"/>
+        <field name="LegSettlDate" required="N"/>
+        <field name="LegLastPx" required="N"/>
+        <field name="LegSettlCurrency" required="N"/>
+        <field name="LegLastForwardPoints" required="N"/>
+        <field name="LegCalculatedCcyLastQty" required="N"/>
+        <field name="LegVolatility" required="N"/>
+        <field name="LegBidPx" required="N"/>
+        <field name="LegOfferPx" required="N"/>
+        <field name="LegPriceType" required="N"/>
+        <component name="LegFinancingDetails" required="N"/>
+        <field name="LegTrdContinuation" required="N"/>
+        <field name="LegPriceDelta" required="N"/>
+        <field name="LegBaseInstrument" required="N"/>
+        <field name="LegSettlCurrAmt" required="N"/>
+        <field name="LegSettlCurrFxRate" required="N"/>
+        <field name="LegSettlCurrFxRateCalc" required="N"/>
+        <field name="LegCalculatedCurrency" required="N"/>
+        <field name="LegOptionHashID" required="N"/>
+        <field name="LegPremiumSettlCurrency" required="N"/>
+        <field name="LegPremiumSettlCurrAmt" required="N"/>
+        <field name="LegPremium" required="N"/>
+      </group>
+    </component>
+    <component name="RateSource">
+      <group name="NoRateSources" required="N">
+        <field name="RateSource" required="N"/>
+        <field name="RateSourceType" required="N"/>
+        <field name="ReferencePage" required="N"/>
+      </group>
+    </component>
+    <component name="YieldData">
+      <field name="YieldType" required="N"/>
+      <field name="Yield" required="N"/>
+      <field name="YieldRedemptionDate" required="N"/>
+    </component>
+    <component name="RelativeValueGrp">
+      <group name="NoRelativeValues" required="N">
+        <field name="RelativeValueType" required="N"/>
+        <field name="RelativeValue" required="N"/>
+      </group>
+    </component>
+    <component name="SpreadOrBenchmarkCurveData">
+      <field name="Spread" required="N"/>
+      <field name="BenchmarkCurveName" required="N"/>
+      <field name="BenchmarkCurvePoint" required="N"/>
+      <field name="BenchmarkPrice" required="N"/>
+      <field name="BenchmarkPriceType" required="N"/>
+      <field name="BenchmarkSecurityID" required="N"/>
+      <field name="BenchmarkSecurityIDSource" required="N"/>
+      <field name="BenchmarkYield" required="N"/>
+      <field name="BenchmarkSecurityDesc" required="N"/>
+    </component>
+    <component name="OrderQtyData">
+      <field name="OrderQty" required="N"/>
+      <field name="CashOrderQty" required="N"/>
+    </component>
+    <component name="Stipulations">
+      <group name="NoStipulations" required="N">
+        <field name="StipulationType" required="N"/>
+        <field name="StipulationValue" required="N"/>
+      </group>
+    </component>
+    <component name="UndInstrmtGrp">
+      <group name="NoUnderlyings" required="N">
+        <component name="UnderlyingInstrument" required="N"/>
+      </group>
+    </component>
+    <component name="FinancingDetails">
+      <field name="AgreementDesc" required="N"/>
+      <field name="AgreementID" required="N"/>
+      <field name="AgreementDate" required="N"/>
+      <component name="FinancingContractualDefinitionGrp" required="N"/>
+      <field name="TerminationType" required="N"/>
+      <field name="StartDate" required="N"/>
+      <field name="EndDate" required="N"/>
+      <field name="DeliveryType" required="N"/>
+      <field name="MarginRatio" required="N"/>
+      <field name="DaysToTerm" required="N"/>
+    </component>
+    <component name="Instrument">
+      <field name="Symbol" required="N"/>
+      <field name="SymbolSfx" required="N"/>
+      <field name="SecurityID" required="N"/>
+      <field name="SecurityIDSource" required="N"/>
+      <component name="SecAltIDGrp" required="N"/>
+      <field name="Product" required="N"/>
+      <field name="SecurityType" required="N"/>
+      <field name="SecuritySubType" required="N"/>
+      <field name="MaturityMonthYear" required="N"/>
+      <field name="MaturityDate" required="N"/>
+      <field name="AttachmentPoint" required="N"/>
+      <field name="DetachmentPoint" required="N"/>
+      <field name="CouponDayCount" required="N"/>
+      <field name="IndexAnnexDate" required="N"/>
+      <field name="IssueDate" required="N"/>
+      <field name="Factor" required="N"/>
+      <field name="CountryOfIssue" required="N"/>
+      <field name="StrikePrice" required="N"/>
+      <field name="StrikeCurrency" required="N"/>
+      <field name="ContractMultiplier" required="N"/>
+      <field name="SettlMethod" required="N"/>
+      <field name="ExerciseStyle" required="N"/>
+      <field name="PutOrCall" required="N"/>
+      <field name="CouponRate" required="N"/>
+      <field name="SecurityExchange" required="N"/>
+      <field name="Issuer" required="N"/>
+      <field name="SecurityDesc" required="N"/>
+      <component name="SecurityXML" required="N"/>
+      <field name="Pool" required="N"/>
+      <component name="EvntGrp" required="N"/>
+      <field name="DatedDate" required="N"/>
+      <field name="InterestAccrualDate" required="N"/>
+      <component name="InstrumentParties" required="N"/>
+      <component name="ComplexEvents" required="N"/>
+      <field name="StrategyType" required="N"/>
+      <component name="DateAdjustment" required="N"/>
+      <component name="OptionExercise" required="N"/>
+      <component name="StreamGrp" required="N"/>
+      <field name="StrategyPosition" required="N"/>
+      <field name="PutOrCallCurrency" required="N"/>
+    </component>
+    <component name="RegulatoryTradeIDGrp">
+      <group name="NoRegulatoryTradeIDs" required="N">
+        <field name="RegulatoryTradeID" required="N"/>
+        <field name="RegulatoryTradeIDSource" required="N"/>
+        <field name="RegulatoryTradeIDEvent" required="N"/>
+        <field name="RegulatoryTradeIDType" required="N"/>
+        <field name="RegulatoryLegRefID" required="N"/>
+      </group>
+    </component>
+    <component name="Parties">
+      <group name="NoPartyIDs" required="N">
+        <field name="PartyID" required="N"/>
+        <field name="PartyIDSource" required="N"/>
+        <field name="PartyRole" required="N"/>
+        <component name="PtysSubGrp" required="N"/>
+      </group>
+    </component>
+  </components>
+  <fields>
+    <field number="1" name="Account" type="STRING"/>
+	<field number="6623" name="AssetSwapSpread" type="FLOAT"/>
+	<field number="6624" name="ISpread" type="FLOAT"/>
+	<field number="6625" name="ZSpread" type="FLOAT"/>
+	<field number="9503" name="FlatTag" type="BOOLEAN"/>
+	<field number="1328" name="RejectText" type="STRING"/>
+	<field number="918" name="AgreementCurrency" type="CURRENCY"/>
+	<field number="806" name="NoNested2PartySubIDs" type="NUMINGROUP"/>
+    <field number="807" name="Nested2PartySubIDType" type="INT"/>
+	<field number="756" name="NoNested2PartyIDs" type="NUMINGROUP"/>
+    <field number="757" name="Nested2PartyID" type="STRING"/>
+    <field number="758" name="Nested2PartyIDSource" type="CHAR"/>
+    <field number="759" name="Nested2PartyRole" type="INT"/>
+    <field number="760" name="Nested2PartySubID" type="STRING"/>
+	<field number="753" name="NoPosAmt" type="NUMINGROUP"/>
+	 <field number="707" name="PosAmtType" type="STRING">
+      <value enum="FMTM" description="FINAL_MARK_TO_MARKET_AMOUNT"/>
+      <value enum="IMTM" description="INCREMENTAL_MARK_TO_MARKET_AMOUNT"/>
+      <value enum="TVAR" description="TRADE_VARIATION_AMOUNT"/>
+      <value enum="SMTM" description="START_OF_DAY_MARK_TO_MARKET_AMOUNT"/>
+      <value enum="PREM" description="PREMIUM_AMOUNT"/>
+      <value enum="CRES" description="CASH_RESIDUAL_AMOUNT"/>
+      <value enum="CASH" description="CASH_AMOUNT"/>
+      <value enum="VADJ" description="VALUE_ADJUSTED_AMOUNT"/>
+    </field>
+    <field number="708" name="PosAmt" type="AMT"/>
+	<field number="819" name="AvgPxIndicator" type="INT">
+
+      <value enum="0" description="NO_AVERAGE_PRICING"/>
+      <value enum="1" description="TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID"/>
+      <value enum="2" description="LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID"/>
+    </field>
+	<field number="468" name="RoundingDirection" type="CHAR">
+      <value enum="0" description="ROUND_TO_NEAREST"/>
+      <value enum="1" description="ROUND_DOWN"/>
+      <value enum="2" description="ROUND_UP"/>
+    </field>
+    <field number="469" name="RoundingModulus" type="FLOAT"/>
+    <field number="6" name="AvgPx" type="PRICE"/>
+	<field number="516" name="OrderPercent" type="PERCENTAGE"/>
+    <field number="7" name="BeginSeqNo" type="SEQNUM"/>
+    <field number="8" name="BeginString" type="STRING"/>
+    <field number="9" name="BodyLength" type="LENGTH"/>
+    <field number="10" name="CheckSum" type="STRING"/>
+    <field number="11" name="ClOrdID" type="STRING"/>
+    <field number="12" name="Commission" type="AMT"/>
+    <field number="13" name="CommType" type="CHAR">
+      <value enum="3" description="Absolute (total monetary amount)"/>
+    </field>
+    <field number="14" name="CumQty" type="QTY"/>
+    <field number="15" name="Currency" type="CURRENCY"/>
+    <field number="16" name="EndSeqNo" type="SEQNUM"/>
+    <field number="17" name="ExecID" type="STRING"/>
+    <field number="18" name="ExecInst" type="MULTIPLECHARVALUE">
+      <value enum="0" description="Stay on offer side"/>
+      <value enum="1" description="Not held"/>
+      <value enum="2" description="Work"/>
+      <value enum="3" description="Go along"/>
+      <value enum="4" description="Over the day"/>
+      <value enum="5" description="Held"/>
+      <value enum="6" description="Participate don&apos;t initiate"/>
+      <value enum="7" description="Strict scale"/>
+      <value enum="8" description="Try to scale"/>
+      <value enum="9" description="Stay on bid side"/>
+      <value enum="A" description="No cross"/>
+      <value enum="B" description="OK to cross"/>
+      <value enum="C" description="Call first"/>
+      <value enum="D" description="Percent of volume"/>
+      <value enum="E" description="Do not increase - DNI"/>
+      <value enum="F" description="Do not reduce - DNR"/>
+      <value enum="G" description="All or none - AON"/>
+      <value enum="H" description="Reinstate on system failure"/>
+      <value enum="I" description="Institutions only"/>
+      <value enum="J" description="Reinstate on trading halt"/>
+      <value enum="K" description="Cancel on trading halt"/>
+      <value enum="L" description="Last peg (last sale)"/>
+      <value enum="M" description="Mid-price peg (midprice of inside quote)"/>
+      <value enum="N" description="Non-negotiable"/>
+      <value enum="O" description="Opening peg"/>
+      <value enum="P" description="Market peg"/>
+      <value enum="Q" description="Cancel on system failure"/>
+      <value enum="R" description="Primary peg"/>
+      <value enum="S" description="Suspend"/>
+      <value enum="U" description="Customer display instruction"/>
+      <value enum="V" description="Netting (for Forex)"/>
+      <value enum="W" description="Peg to VWAP"/>
+      <value enum="X" description="Trade along"/>
+      <value enum="Y" description="Try to stop"/>
+      <value enum="Z" description="Cancel if not best"/>
+      <value enum="a" description="Trailing stop peg"/>
+      <value enum="b" description="Strict limit"/>
+      <value enum="c" description="Ignore price validity checks"/>
+      <value enum="d" description="Peg to limit price"/>
+      <value enum="e" description="Work to target strategy"/>
+    </field>
+    <field number="19" name="ExecRefID" type="STRING"/>
+    <field number="21" name="HandlInst" type="CHAR">
+      <value enum="1" description="Automated execution order, private, no Broker intervention"/>
+      <value enum="2" description="Automated execution order, public, broker intervention OK"/>
+      <value enum="3" description="Manual order, best execution"/>
+    </field>
+    <field number="22" name="SecurityIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="2" description="SEDOL"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="6" description="ISO Currency Code"/>
+      <value enum="8" description="Exchange symbol"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="B" description="Wertpapier"/>
+      <value enum="I" description="ISDA/FpML product specification (XML in SecurityXML(1185))"/>
+      <value enum="P" description="Markit RED pair CLIP"/>
+    </field>
+    <field number="30" name="LastMkt" type="EXCHANGE"/>
+    <field number="31" name="LastPx" type="PRICE"/>
+    <field number="32" name="LastQty" type="QTY"/>
+    <field number="34" name="MsgSeqNum" type="SEQNUM"/>
+    <field number="35" name="MsgType" type="STRING">
+      <value enum="0" description="Heartbeat"/>
+      <value enum="1" description="TestRequest"/>
+      <value enum="2" description="ResendRequest"/>
+      <value enum="3" description="Reject"/>
+      <value enum="4" description="SequenceReset"/>
+      <value enum="5" description="Logout"/>
+      <value enum="6" description="IndicationOfInterest"/>
+      <value enum="8" description="ExecutionReport"/>
+      <value enum="9" description="OrderCancelReject"/>
+      <value enum="A" description="Logon"/>
+      <value enum="AB" description="NewOrderMultileg"/>
+      <value enum="AC" description="MultilegOrderCancelReplace"/>
+      <value enum="AD" description="TradeCaptureReportRequest"/>
+      <value enum="AE" description="TradeCaptureReport"/>
+      <value enum="AF" description="OrderMassStatusRequest"/>
+      <value enum="AG" description="QuoteRequestReject"/>
+      <value enum="AI" description="QuoteStatusReport"/>
+      <value enum="AJ" description="QuoteResponse"/>
+      <value enum="AK" description="Confirmation"/>
+      <value enum="AQ" description="TradeCaptureReportRequestAck"/>
+      <value enum="AR" description="TradeCaptureReportAck"/>
+      <value enum="AS" description="AllocationReport"/>
+      <value enum="AT" description="AllocationReportAck"/>
+      <value enum="AU" description="ConfirmationAck"/>
+      <value enum="BN" description="ExecutionAck"/>
+      <value enum="CW" description="QuoteAck"/>
+      <value enum="D" description="NewOrderSingle"/>
+      <value enum="E" description="NewOrderList"/>
+      <value enum="F" description="OrderCancelRequest"/>
+      <value enum="G" description="OrderCancelReplaceRequest"/>
+      <value enum="H" description="OrderStatusRequest"/>
+      <value enum="J" description="AllocationInstruction"/>
+      <value enum="P" description="AllocationInstructionAck"/>
+      <value enum="R" description="QuoteRequest"/>
+      <value enum="S" description="Quote"/>
+      <value enum="Z" description="QuoteCancel"/>
+      <value enum="a" description="QuoteStatusRequest"/>
+      <value enum="j" description="BusinessMessageReject"/>
+      <value enum="n" description="XMLnonFIX"/>
+      <value enum="q" description="OrderMassCancelRequest"/>
+      <value enum="r" description="OrderMassCancelReport"/>
+    </field>
+    <field number="36" name="NewSeqNo" type="SEQNUM"/>
+    <field number="37" name="OrderID" type="STRING"/>
+    <field number="38" name="OrderQty" type="QTY"/>
+    <field number="39" name="OrdStatus" type="CHAR">
+      <value enum="0" description="New"/>
+      <value enum="1" description="Partially filled"/>
+      <value enum="2" description="Filled"/>
+      <value enum="4" description="Canceled"/>
+      <value enum="6" description="Pending Cancel (i.e. result of Order Cancel Request)"/>
+      <value enum="8" description="Rejected"/>
+      <value enum="C" description="Expired"/>
+      <value enum="E" description="Pending Replace (i.e. result of Order Cancel/Replace Request)"/>
+    </field>
+    <field number="40" name="OrdType" type="CHAR">
+      <value enum="1" description="Market"/>
+      <value enum="2" description="Limit"/>
+      <value enum="G" description="Forex Swap"/>
+    </field>
+    <field number="41" name="OrigClOrdID" type="STRING"/>
+    <field number="43" name="PossDupFlag" type="BOOLEAN">
+      <value enum="N" description="Original transmission"/>
+      <value enum="Y" description="Possible duplicate"/>
+    </field>
+    <field number="44" name="Price" type="PRICE"/>
+    <field number="45" name="RefSeqNum" type="SEQNUM"/>
+    <field number="48" name="SecurityID" type="STRING"/>
+    <field number="49" name="SenderCompID" type="STRING"/>
+    <field number="50" name="SenderSubID" type="STRING"/>
+    <field number="52" name="SendingTime" type="UTCTIMESTAMP"/>
+    <field number="53" name="Quantity" type="QTY"/>
+    <field number="54" name="Side" type="CHAR">
+      <value enum="1" description="Buy"/>
+      <value enum="2" description="Sell"/>
+      <value enum="5" description="Sell short"/>
+      <value enum="D" description="Subscribe (e.g. CIV)"/>
+      <value enum="E" description="Redeem (e.g. CIV)"/>
+      <value enum="P" description="Customer pays the fixed rate"/>
+      <value enum="R" description="Customer receives the fixed rate"/>
+    </field>
+    <field number="55" name="Symbol" type="STRING"/>
+    <field number="56" name="TargetCompID" type="STRING"/>
+    <field number="57" name="TargetSubID" type="STRING"/>
+    <field number="58" name="Text" type="STRING"/>
+    <field number="59" name="TimeInForce" type="CHAR">
+      <value enum="0" description="Day (or session)"/>
+      <value enum="1" description="Good Till Cancel (GTC)"/>
+      <value enum="6" description="Good Till Date (GTD)"/>
+    </field>
+    <field number="60" name="TransactTime" type="UTCTIMESTAMP"/>
+    <field number="63" name="SettlType" type="STRING">
+      <value enum="0" description="Regular / FX Spot settlement (T+1 or T+2 depending on currency)"/>
+      <value enum="1" description="Cash (TOD / T+0)"/>
+      <value enum="2" description="Next Day (TOM / T+1)"/>
+      <value enum="3" description="T+2"/>
+      <value enum="4" description="T+3"/>
+      <value enum="5" description="T+4"/>
+      <value enum="6" description="Future"/>
+      <value enum="B" description="Broken date"/>
+      <value enum="C" description="FX Spot Next settlement (Spot+1, aka next day)"/>
+      <value enum="O" description="Overnight next"/>
+      <value enum="T" description="Tomorrow next"/>
+	  <value enum="Y1" description="Year one"/>
+	  <value enum="Y2" description="Year one"/>
+	  <value enum="Y3" description="Year one"/>
+	  <value enum="Y4" description="Year one"/>
+	  <value enum="Y5" description="Year one"/>
+	  <value enum="Y6" description="Year one"/>
+	  <value enum="Y7" description="Year one"/>
+	  <value enum="Y8" description="Year one"/>
+	  <value enum="Y9" description="Year one"/>
+	  <value enum="M1" description="Year one"/>
+	  <value enum="M2" description="Year one"/>
+	  <value enum="M3" description="Year one"/>
+	  <value enum="M4" description="Year one"/>
+	  <value enum="M5" description="Year one"/>
+	  <value enum="M6" description="Year one"/>
+	  <value enum="M7" description="Year one"/>
+	  <value enum="M8" description="Year one"/>
+	  <value enum="M9" description="Year one"/>
+	  <value enum="M10" description="Year one"/>
+	  <value enum="M11" description="Year one"/>
+    </field>
+    <field number="64" name="SettlDate" type="LOCALMKTDATE"/>
+    <field number="65" name="SymbolSfx" type="STRING">
+      <value enum="WI" description="&quot;When Issued&quot; for a security to be reissued under an old CUSIP or ISIN"/>
+    </field>
+    <field number="66" name="ListID" type="STRING"/>
+    <field number="70" name="AllocID" type="STRING"/>
+    <field number="71" name="AllocTransType" type="CHAR">
+      <value enum="0" description="New"/>
+      <value enum="1" description="Replace"/>
+      <value enum="2" description="Cancel"/>
+    </field>
+    <field number="72" name="RefAllocID" type="STRING"/>
+    <field number="73" name="NoOrders" type="NUMINGROUP"/>
+    <field number="74" name="AvgPxPrecision" type="INT"/>
+    <field number="75" name="TradeDate" type="LOCALMKTDATE"/>
+	<field number="715" name="ClearingBusinessDate" type="LOCALMKTDATE"/>
+    <field number="77" name="PositionEffect" type="CHAR">
+      <value enum="C" description="Close"/>
+      <value enum="O" description="Open"/>
+    </field>
+    <field number="78" name="NoAllocs" type="NUMINGROUP"/>
+    <field number="79" name="AllocAccount" type="STRING"/>
+    <field number="80" name="AllocQty" type="QTY"/>
+    <field number="85" name="NoDlvyInst" type="NUMINGROUP"/>
+    <field number="97" name="PossResend" type="BOOLEAN">
+      <value enum="N" description="Original Transmission"/>
+      <value enum="Y" description="Possible Resend"/>
+    </field>
+    <field number="98" name="EncryptMethod" type="INT">
+      <value enum="0" description="None / Other"/>
+    </field>
+    <field number="103" name="OrdRejReason" type="INT">
+      <value enum="0" description="Broker / Exchange option"/>
+      <value enum="1" description="Unknown symbol"/>
+      <value enum="2" description="Exchange closed"/>
+      <value enum="3" description="Order exceeds limit"/>
+      <value enum="4" description="Too late to enter"/>
+      <value enum="5" description="Unknown order"/>
+      <value enum="6" description="Duplicate Order (e.g. dupe ClOrdID)"/>
+      <value enum="7" description="Duplicate of a verbally communicated order"/>
+      <value enum="8" description="Stale order"/>
+      <value enum="9" description="Trade along required"/>
+      <value enum="10" description="Invalid Investor ID"/>
+      <value enum="11" description="Unsupported order characteristic"/>
+      <value enum="12" description="Surveillence Option"/>
+      <value enum="13" description="Incorrect quantity"/>
+      <value enum="15" description="Unknown account(s)"/>
+      <value enum="16" description="Price exceeds current price band"/>
+      <value enum="18" description="Invalid price increment"/>
+      <value enum="19" description="Reference price not available"/>
+      <value enum="20" description="Notional value exceeds threshold"/>
+      <value enum="21" description=""/>
+      <value enum="22" description="Short sell not permitted"/>
+      <value enum="23" description="Short sell rejected due to security pre-borrow restriction"/>
+      <value enum="24" description="Short sell rejected due to account pre-borrow restriction"/>
+      <value enum="25" description="Insufficient credit limit"/>
+      <value enum="26" description="Exceeded clip size limit"/>
+      <value enum="27" description="Exceeded maximum notional order amount"/>
+      <value enum="28" description="Exceeded DV01/PV01 limit"/>
+      <value enum="29" description="Exceeded CS01 limit"/>
+      <value enum="99" description="Other"/>
+    </field>
+	<field number="336" name="TradingSessionID" type="STRING"/>
+	<field number="483" name="TransBkdTime" type="UTCTIMESTAMP"/>
+    <field number="106" name="Issuer" type="STRING"/>
+    <field number="107" name="SecurityDesc" type="STRING"/>
+    <field number="108" name="HeartBtInt" type="INT"/>
+    <field number="112" name="TestReqID" type="STRING"/>
+    <field number="115" name="OnBehalfOfCompID" type="STRING"/>
+    <field number="116" name="OnBehalfOfSubID" type="STRING"/>
+    <field number="118" name="NetMoney" type="AMT"/>
+    <field number="119" name="SettlCurrAmt" type="AMT"/>
+    <field number="120" name="SettlCurrency" type="CURRENCY"/>
+    <field number="122" name="OrigSendingTime" type="UTCTIMESTAMP"/>
+    <field number="123" name="GapFillFlag" type="BOOLEAN">
+      <value enum="N" description="Sequence Reset, Ignore Msg Seq Num (N/A For FIXML - Not Used)"/>
+      <value enum="Y" description="Gap Fill Message, Msg Seq Num Field Valid"/>
+    </field>
+    <field number="124" name="NoExecs" type="NUMINGROUP"/>
+    <field number="126" name="ExpireTime" type="UTCTIMESTAMP"/>
+    <field number="128" name="DeliverToCompID" type="STRING"/>
+    <field number="129" name="DeliverToSubID" type="STRING"/>
+    <field number="132" name="BidPx" type="PRICE"/>
+    <field number="133" name="OfferPx" type="PRICE"/>
+    <field number="136" name="NoMiscFees" type="NUMINGROUP"/>
+    <field number="137" name="MiscFeeAmt" type="AMT"/>
+    <field number="138" name="MiscFeeCurr" type="CURRENCY"/>
+    <field number="139" name="MiscFeeType" type="STRING">
+      <value enum="1" description="Regulatory (e.g. SEC)"/>
+      <value enum="2" description="Tax"/>
+      <value enum="4" description="Exchange fees"/>
+      <value enum="5" description="Stamp"/>
+      <value enum="6" description="Levy"/>
+      <value enum="7" description="Other"/>
+      <value enum="9" description="Consumption tax"/>
+      <value enum="13" description="Transfer Fee"/>
+      <value enum="14" description="Security lending"/>
+      <value enum="100" description="Tax on principal"/>
+      <value enum="101" description="Tax on accrued"/>
+    </field>
+    <field number="142" name="SenderLocationID" type="STRING"/>
+    <field number="143" name="TargetLocationID" type="STRING"/>
+    <field number="144" name="OnBehalfOfLocationID" type="STRING">
+      <value enum="FI" description="Fixed Income"/>
+      <value enum="FX" description="Foreign Exchange"/>
+      <value enum="VCON" description="Voice Trade Confirmation"/>
+    </field>
+    <field number="145" name="DeliverToLocationID" type="STRING">
+      <value enum="FI" description="Fixed Income"/>
+      <value enum="FX" description="Foreign Exchange"/>
+      <value enum="VCON" description="Voice Trade Confirmation"/>
+    </field>
+    <field number="150" name="ExecType" type="CHAR">
+      <value enum="0" description="New"/>
+      <value enum="4" description="Canceled"/>
+      <value enum="5" description="Replaced"/>
+      <value enum="6" description="Pending Cancel (e.g. result of Order Cancel Request)"/>
+      <value enum="8" description="Rejected"/>
+      <value enum="D" description="Restated (Execution Report sent unsolicited by sellside, with ExecRestatementReason (378) set)"/>
+      <value enum="E" description="Pending Replace (e.g. result of Order Cancel/Replace Request)"/>
+      <value enum="F" description="Trade (partial fill or fill)"/>
+      <value enum="G" description="Trade Correct"/>
+      <value enum="H" description="Trade Cancel"/>
+      <value enum="I" description="Order Status"/>
+    </field>
+    <field number="151" name="LeavesQty" type="QTY"/>
+    <field number="152" name="CashOrderQty" type="QTY"/>
+    <field number="153" name="AllocAvgPx" type="PRICE"/>
+    <field number="154" name="AllocNetMoney" type="AMT"/>
+    <field number="155" name="SettlCurrFxRate" type="FLOAT"/>
+    <field number="156" name="SettlCurrFxRateCalc" type="CHAR">
+      <value enum="D" description="Divide"/>
+      <value enum="M" description="Multiply"/>
+    </field>
+    <field number="157" name="NumDaysInterest" type="INT"/>
+	<field number="230" name="ExDate" type="LOCALMKTDATE"/>
+    <field number="158" name="AccruedInterestRate" type="PERCENTAGE"/>
+    <field number="159" name="AccruedInterestAmt" type="AMT"/>
+	<field number="738" name="InterestAtMaturity" type="AMT"/>
+    <field number="161" name="AllocText" type="STRING"/>
+    <field number="165" name="SettlInstSource" type="CHAR">
+      <value enum="1" description="Broker&apos;s instructions"/>
+      <value enum="2" description="Institution&apos;s instructions"/>
+      <value enum="3" description="Investor (e.g. CIV use)"/>
+    </field>
+    <field number="167" name="SecurityType" type="STRING">
+      <value enum="AN" description="Other Anticipation Notes (BAN, GAN, etc.)"/>
+      <value enum="BA" description="Bankers Acceptance"/>
+      <value enum="BN" description="Bank Notes"/>
+      <value enum="BOX" description="Bill Of Exchanges"/>
+      <value enum="BRADY" description="Brady Bond"/>
+      <value enum="BSKT" description="Basket of securities"/>
+      <value enum="BUYSELL" description="Buy Sellback"/>
+      <value enum="CAN" description="Canadian Treasury Notes"/>
+      <value enum="CASH" description="Cash"/>
+      <value enum="CB" description="Convertible Bond"/>
+      <value enum="CD" description="Certificate of Deposit"/>
+      <value enum="CDS" description="Credit Default Swap"/>
+      <value enum="CL" description="Call Loans"/>
+      <value enum="COFO" description="Certificate Of Obligation"/>
+      <value enum="COFP" description="Certificate Of Participation"/>
+      <value enum="CORP" description="Corporate Bond"/>
+      <value enum="CP" description="Commercial Paper"/>
+      <value enum="CPP" description="Corporate Private Placement"/>
+      <value enum="CS" description="Common Stock"/>
+      <value enum="CTB" description="Canadian Treasury Bills"/>
+      <value enum="DIMSUMCORP" description="Offshore issued Chinese Yuan (CNY) denominated corporate bond"/>
+      <value enum="DIMSUMSOV" description="Offshore issued Chinese Yuan (CNY) denominated sovereign bond"/>
+      <value enum="DN" description="Deposit Notes"/>
+      <value enum="DUAL" description="Dual Currency"/>
+      <value enum="DVPLDG" description="Delivery versus pledge"/>
+      <value enum="EUCD" description="Euro Certificate of Deposit"/>
+      <value enum="EUCORP" description="Euro Corporate Bond"/>
+      <value enum="EUCP" description="Euro Commercial Paper"/>
+      <value enum="EUFRN" description="Euro Corporate Floating Rate Note"/>
+      <value enum="EUSOV" description="Euro Sovereign"/>
+      <value enum="EUSUPRA" description="Euro Supranational Coupons"/>
+      <value enum="FAC" description="Federal Agency Coupon"/>
+      <value enum="FADN" description="Federal Agency Discount Note"/>
+      <value enum="FOR" description="Foreign Exchange Contract"/>
+      <value enum="FRN" description="US Corporate Floating Rate Note"/>
+      <value enum="FUT" description="Future"/>
+      <value enum="FXFWD" description="FX Forward"/>
+      <value enum="FXNDF" description="FX Non-deliverable forward"/>
+      <value enum="FXNDS" description="FX Non-deliverable swap"/>
+      <value enum="FXSPOT" description="FX Spot"/>
+      <value enum="FXSWAP" description="FX Swap"/>
+      <value enum="GO" description="General Obligation Bond (Muni)"/>
+      <value enum="IRS" description="Interest Rate Swap"/>
+      <value enum="LQN" description="Liquidity Note"/>
+      <value enum="MAC" description="Market Agreed Coupon swap"/>
+      <value enum="MBS" description="Mortgage-backed Securities"/>
+      <value enum="MLEG" description="Multileg Instrument"/>
+      <value enum="MMF" description="Money market fund"/>
+      <value enum="MTN" description="Medium Term Notes"/>
+      <value enum="NONE" description="No Security Type"/>
+      <value enum="ONITE" description="Overnight"/>
+      <value enum="OPT" description="Option"/>
+      <value enum="PN" description="Promissory Note"/>
+      <value enum="PRCORP" description="Preferred corporate bond"/>
+      <value enum="PS" description="Preferred Stock"/>
+      <value enum="PZFJ" description="Plazos Fijos"/>
+      <value enum="RAN" description="Revenue Anticipation Note"/>
+      <value enum="REPO" description="Repurchase Agreement"/>
+      <value enum="REV" description="Revenue Bond (Muni)"/>
+      <value enum="SECLOAN" description="Securities Loan"/>
+      <value enum="SOV" description="Sovereign"/>
+      <value enum="SPCLA" description="Special Assessment"/>
+      <value enum="SPCLO" description="Special Obligation"/>
+      <value enum="SPCLT" description="Special Tax"/>
+      <value enum="STN" description="Short Term Loan Note"/>
+      <value enum="STRUCT" description="Structured Notes"/>
+      <value enum="SUPRA" description="USD Supranational Coupons "/>
+      <value enum="TAXA" description="Tax Allocation"/>
+      <value enum="TB" description="Treasury Bill - non US"/>
+      <value enum="TBA" description="To Be Announced MBS"/>
+      <value enum="TBILL" description="US Treasury Bill"/>
+      <value enum="TBOND" description="US Treasury Bond"/>
+      <value enum="TCAL" description="Principal Strip of a Callable Bond or Note"/>
+      <value enum="TD" description="Time Deposit"/>
+      <value enum="TECP" description="Tax Exempt Commercial Paper"/>
+      <value enum="TFRN" description="US Treasury Floating Rate Note"/>
+      <value enum="TINT" description="Interest Strip from any Bond or Note"/>
+      <value enum="TIPS" description="Treasury Inflation Protected Securities"/>
+      <value enum="TNOTE" description="US Treasury Note"/>
+      <value enum="TPRN" description="Principal Strip from a Non-Callable Bond or Note"/>
+      <value enum="VRDN" description="Variable Rate Demand Note"/>
+      <value enum="WAR" description="Warrant"/>
+      <value enum="XCN" description="Extended Comm Note"/>
+      <value enum="XLINKD" description="Indexed Linked"/>
+      <value enum="YANK" description="Yankee Corporate Bond"/>
+      <value enum="YCD" description="Yankee Certificate of Deposit"/>
+    </field>
+    <field number="169" name="StandInstDbType" type="INT">
+      <value enum="0" description="Other"/>
+      <value enum="1" description="DTC SID"/>
+      <value enum="2" description="Thomson ALERT"/>
+      <value enum="3" description="A Global Custodian (StandInstDBName (70) must be provided)"/>
+      <value enum="4" description="AccountNet"/>
+    </field>
+    <field number="170" name="StandInstDbName" type="STRING"/>
+    <field number="171" name="StandInstDbID" type="STRING"/>
+    <field number="172" name="SettlDeliveryType" type="INT">
+      <value enum="0" description="&quot;Versus. Payment&quot;: Deliver (if Sell) or Receive (if Buy) vs. (Against) Payment"/>
+      <value enum="1" description="&quot;Free&quot;: Deliver (if Sell) or Receive (if Buy) Free"/>
+      <value enum="2" description="Tri-Party"/>
+      <value enum="3" description="Hold In Custody"/>
+    </field>
+    <field number="194" name="LastSpotRate" type="PRICE"/>
+    <field number="195" name="LastForwardPoints" type="PRICEOFFSET"/>
+    <field number="198" name="SecondaryOrderID" type="STRING"/>
+    <field number="200" name="MaturityMonthYear" type="MONTHYEAR"/>
+    <field number="201" name="PutOrCall" type="INT">
+      <value enum="0" description="Put"/>
+      <value enum="1" description="Call"/>
+    </field>
+    <field number="202" name="StrikePrice" type="PRICE"/>
+    <field number="207" name="SecurityExchange" type="EXCHANGE"/>
+    <field number="212" name="XmlDataLen" type="LENGTH"/>
+    <field number="213" name="XmlData" type="DATA"/>
+    <field number="218" name="Spread" type="PRICEOFFSET"/>
+    <field number="221" name="BenchmarkCurveName" type="STRING">
+      <value enum="EONIA" description="Euro Overnight Index Average"/>
+      <value enum="EURIBOR" description="Euro Interbank Offer Rate"/>
+      <value enum="FEDEFF" description="US Federal Reserve Fed Funds Effective Rate"/>
+      <value enum="FEDOPEN" description="US Federal Reserve Fed Funds Target Rate"/>
+      <value enum="LIBOR" description="London Inter-Bank Offer Rate"/>
+      <value enum="SONIA" description="Sterling Overnight Index Average "/>
+      <value enum="TREASURY" description="Treasury"/>
+    </field>
+    <field number="222" name="BenchmarkCurvePoint" type="STRING"/>
+    <field number="223" name="CouponRate" type="PERCENTAGE"/>
+    <field number="225" name="IssueDate" type="LOCALMKTDATE"/>
+    <field number="228" name="Factor" type="FLOAT"/>
+    <field number="231" name="ContractMultiplier" type="FLOAT"/>
+    <field number="232" name="NoStipulations" type="NUMINGROUP"/>
+    <field number="233" name="StipulationType" type="STRING">
+      <value enum="STRUCT" description="Structure"/>
+      <value enum="TNP" description="Total number of pools"/>
+    </field>
+    <field number="234" name="StipulationValue" type="STRING"/>
+    <field number="235" name="YieldType" type="STRING">
+      <value enum="CALL" description="Yield to Next Call"/>
+      <value enum="MATURITY" description="Yield to Maturity"/>
+      <value enum="PUT" description="Yield to Next Put"/>
+      <value enum="WORST" description="Yield To Worst"/>
+    </field>
+    <field number="236" name="Yield" type="PERCENTAGE"/>
+    <field number="238" name="Concession" type="AMT"/>
+	 <field number="237" name="TotalTakedown" type="AMT"/>
+    <field number="277" name="TradeCondition" type="MULTIPLESTRINGVALUE">
+      <value enum="d" description="Bunched"/>
+    </field>
+    <field number="305" name="UnderlyingSecurityIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="B" description="Wertpapier"/>
+      <value enum="P" description="Markit RED pair CLIP"/>
+    </field>
+    <field number="306" name="UnderlyingIssuer" type="STRING"/>
+    <field number="307" name="UnderlyingSecurityDesc" type="STRING"/>
+    <field number="309" name="UnderlyingSecurityID" type="STRING"/>
+    <field number="310" name="UnderlyingSecurityType" type="STRING">
+      <value enum="AN" description="Other Anticipation Notes (BAN, GAN, etc.)"/>
+      <value enum="BA" description="Bankers Acceptance"/>
+      <value enum="BN" description="Bank Notes"/>
+      <value enum="BOX" description="Bill Of Exchanges"/>
+      <value enum="BRADY" description="Brady Bond"/>
+      <value enum="BSKT" description="Basket of securities"/>
+      <value enum="BUYSELL" description="Buy Sellback"/>
+      <value enum="CAN" description="Canadian Treasury Notes"/>
+      <value enum="CASH" description="Cash"/>
+      <value enum="CB" description="Convertible Bond"/>
+      <value enum="CD" description="Certificate Of Deposit"/>
+      <value enum="CDS" description="Credit Default Swap"/>
+      <value enum="CL" description="Call Loan"/>
+      <value enum="COFO" description="Certificate Of Obligation"/>
+      <value enum="COFP" description="Certificate Of Participation"/>
+      <value enum="CORP" description="Corporate Bond"/>
+      <value enum="CP" description="Commercial Paper"/>
+      <value enum="CPP" description="Corporate Private Placement"/>
+      <value enum="CS" description="Common Stock"/>
+      <value enum="CTB" description="Canadian Treasury Bills"/>
+      <value enum="DIMSUMCORP" description="Offshore issued Chinese Yuan (CNY) denominated corporate bond"/>
+      <value enum="DIMSUMSOV" description="Offshore issued Chinese Yuan (CNY) denominated sovereign bond"/>
+      <value enum="DN" description="Deposit Notes"/>
+      <value enum="DUAL" description="Dual Currency"/>
+      <value enum="DVPLDG" description="Delivery versus pledge"/>
+      <value enum="EUCD" description="Euro Certificate Of Deposit"/>
+      <value enum="EUCORP" description="Euro Corporate Bond"/>
+      <value enum="EUCP" description="Euro Commercial Paper"/>
+      <value enum="EUFRN" description="Euro Corporate Floating Rate Notes"/>
+      <value enum="EUSOV" description="Euro Sovereign"/>
+      <value enum="EUSUPRA" description="Euro Supranational Coupons"/>
+      <value enum="FAC" description="Federal Agency Coupon"/>
+      <value enum="FADN" description="Federal Agency Discount Note"/>
+      <value enum="FRN" description="US Corporate Floating Rate Notes"/>
+      <value enum="FUT" description="Future"/>
+      <value enum="GO" description="General Obligation Bond (Muni)"/>
+      <value enum="IRS" description="Interest Rate Swap"/>
+      <value enum="LQN" description="Liquidity Note"/>
+      <value enum="MAC" description="Market Agreed Coupon swap"/>
+      <value enum="MBS" description="Mortgage-backed Securities"/>
+      <value enum="MMF" description="Money Market Fund"/>
+      <value enum="MTN" description="Medium Term Notes"/>
+      <value enum="NONE" description="No Security Type"/>
+      <value enum="ONITE" description="Overnight"/>
+      <value enum="OPT" description="Option"/>
+      <value enum="PN" description="Promissory Note"/>
+      <value enum="PRCORP" description="Preferred Corporate Bond"/>
+      <value enum="PS" description="Preferred Stock"/>
+      <value enum="PZFJ" description="Plazos Fijos"/>
+      <value enum="RAN" description="Revenue Anticipation Note"/>
+      <value enum="REPO" description="Repurchase Agreement"/>
+      <value enum="REV" description="Revenue Bond (Muni)"/>
+      <value enum="SECLOAN" description="Securities Loan"/>
+      <value enum="SOV" description="Sovereign"/>
+      <value enum="SPCLA" description="Special Assessment"/>
+      <value enum="SPCLO" description="Special Obligation"/>
+      <value enum="SPCLT" description="Special Tax"/>
+      <value enum="STN" description="Short Term Loan Note"/>
+      <value enum="STRUCT" description="Structured Notes"/>
+      <value enum="SUPRA" description="USD Supranational Coupons "/>
+      <value enum="TAXA" description="Tax Allocation"/>
+      <value enum="TB" description="Treasury Bill - non US"/>
+      <value enum="TBA" description="To Be Announced MBS"/>
+      <value enum="TBILL" description="US Treasury Bill"/>
+      <value enum="TBOND" description="US Treasury Bond"/>
+      <value enum="TCAL" description="Principal Strip of a Callable Bond or Note"/>
+      <value enum="TD" description="Time Deposit"/>
+      <value enum="TECP" description="Tax Exempt Commercial Paper"/>
+      <value enum="TFRN" description="US Treasury Floating Rate Note"/>
+      <value enum="TINT" description="Interest Strip from any Bond or Note"/>
+      <value enum="TIPS" description="Treasury Inflation Protected Securities"/>
+      <value enum="TNOTE" description="US Treasury Note"/>
+      <value enum="TPRN" description="Principal Strip from a Non-Callable Bond or Note"/>
+      <value enum="VRDN" description="Variable Rate Demand Note"/>
+      <value enum="WAR" description="Warrant"/>
+      <value enum="XCN" description="Extended Comm Note"/>
+      <value enum="XLINKD" description="Indexed Linked"/>
+      <value enum="YANK" description="Yankee Corporate Bond"/>
+      <value enum="YCD" description="Yankee Certificate Of Deposit"/>
+    </field>
+    <field number="311" name="UnderlyingSymbol" type="STRING"/>
+    <field number="347" name="MessageEncoding" type="STRING">
+      <value enum="UTF-8" description="When FpML content is included."/>
+    </field>
+	<field number="350" name="EncodedSecurityDescLen" type="LENGTH"/>
+	<field number="351" name="EncodedSecurityDesc" type="DATA"/>
+    <field number="354" name="EncodedTextLen" type="LENGTH"/>
+    <field number="355" name="EncodedText" type="DATA"/>
+	<field number="752" name="SideMultiLegReportingType" type="INT">
+      <value enum="1" description="SINGLE_SECURITY"/>
+      <value enum="2" description="INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY"/>
+      <value enum="3" description="MULTI_LEG_SECURITY"/>
+    </field>
+    <field number="369" name="LastMsgSeqNumProcessed" type="SEQNUM"/>
+    <field number="371" name="RefTagID" type="INT"/>
+    <field number="372" name="RefMsgType" type="STRING">
+      <value enum="0" description="Heartbeat"/>
+      <value enum="1" description="TestRequest"/>
+      <value enum="2" description="ResendRequest"/>
+      <value enum="3" description="Reject"/>
+      <value enum="4" description="SequenceReset"/>
+      <value enum="5" description="Logout"/>
+      <value enum="6" description="IndicationOfInterest"/>
+      <value enum="8" description="ExecutionReport"/>
+      <value enum="9" description="OrderCancelReject"/>
+      <value enum="A" description="Logon"/>
+      <value enum="AB" description="NewOrderMultileg"/>
+      <value enum="AC" description="MultilegOrderCancelReplace"/>
+      <value enum="AD" description="TradeCaptureReportRequest"/>
+      <value enum="AE" description="TradeCaptureReport"/>
+      <value enum="AF" description="OrderMassStatusRequest"/>
+      <value enum="AG" description="QuoteRequestReject"/>
+      <value enum="AI" description="QuoteStatusReport"/>
+      <value enum="AJ" description="QuoteResponse"/>
+      <value enum="AK" description="Confirmation"/>
+      <value enum="AQ" description="TradeCaptureReportRequestAck"/>
+      <value enum="AR" description="TradeCaptureReportAck"/>
+      <value enum="AS" description="AllocationReport"/>
+      <value enum="AT" description="AllocationReportAck"/>
+      <value enum="AU" description="ConfirmationAck"/>
+      <value enum="BN" description="ExecutionAck"/>
+      <value enum="CW" description="QuoteAck"/>
+      <value enum="D" description="NewOrderSingle"/>
+      <value enum="E" description="NewOrderList"/>
+      <value enum="F" description="OrderCancelRequest"/>
+      <value enum="G" description="OrderCancelReplaceRequest"/>
+      <value enum="H" description="OrderStatusRequest"/>
+      <value enum="J" description="AllocationInstruction"/>
+      <value enum="P" description="AllocationInstructionAck"/>
+      <value enum="R" description="QuoteRequest"/>
+      <value enum="S" description="Quote"/>
+      <value enum="Z" description="QuoteCancel"/>
+      <value enum="a" description="QuoteStatusRequest"/>
+      <value enum="j" description="BusinessMessageReject"/>
+      <value enum="n" description="XMLnonFIX"/>
+      <value enum="q" description="OrderMassCancelRequest"/>
+      <value enum="r" description="OrderMassCancelReport"/>
+    </field>
+    <field number="373" name="SessionRejectReason" type="INT">
+      <value enum="0" description="Invalid Tag Number"/>
+      <value enum="1" description="Required Tag Missing"/>
+      <value enum="2" description="Tag not defined for this message type"/>
+      <value enum="3" description="Undefined tag"/>
+      <value enum="4" description="Tag specified without a value"/>
+      <value enum="5" description="Value is incorrect (out of range) for this tag"/>
+      <value enum="6" description="Incorrect data format for value"/>
+      <value enum="7" description="Decryption problem"/>
+      <value enum="8" description="Signature problem"/>
+      <value enum="9" description="CompID problem"/>
+      <value enum="10" description="SendingTime Accuracy Problem"/>
+      <value enum="11" description="Invalid MsgType"/>
+      <value enum="12" description="XML Validation Error"/>
+      <value enum="13" description="Tag appears more than once"/>
+      <value enum="14" description="Tag specified out of required order"/>
+      <value enum="15" description="Repeating group fields out of order"/>
+      <value enum="16" description="Incorrect NumInGroup count for repeating group"/>
+      <value enum="17" description="Non &quot;Data&quot; value includes field delimiter (&lt;SOH&gt; character)"/>
+      <value enum="18" description="Invalid/Unsupported Application Version"/>
+      <value enum="99" description="Other"/>
+    </field>
+	<field number="376" name="ComplianceID" type="STRING"/>
+    <field number="377" name="SolicitedFlag" type="BOOLEAN">
+      <value enum="N" description="Was not solicited"/>
+      <value enum="Y" description="Was solicited"/>
+    </field>
+    <field number="378" name="ExecRestatementReason" type="INT">
+      <value enum="99" description="Other"/>
+    </field>
+	<field number="570" name="PreviouslyReported" type="BOOLEAN"/>
+    <field number="379" name="BusinessRejectRefID" type="STRING"/>
+    <field number="380" name="BusinessRejectReason" type="INT">
+      <value enum="0" description="Other"/>
+      <value enum="1" description="Unknown ID"/>
+      <value enum="2" description="Unknown Security"/>
+      <value enum="3" description="Unsupported Message Type"/>
+      <value enum="4" description="Application not available"/>
+      <value enum="5" description="Conditionally required field missing"/>
+      <value enum="6" description="Not Authorized"/>
+    </field>
+    <field number="381" name="GrossTradeAmt" type="AMT"/>
+    <field number="416" name="IncTaxInd" type="INT">
+      <value enum="1" description="Net"/>
+      <value enum="2" description="Gross"/>
+    </field>
+    <field number="423" name="PriceType" type="INT">
+      <value enum="1" description="Percent of par"/>
+      <value enum="2" description="Per unit (i.e. per share or contract)"/>
+      <value enum="3" description="Fixed amount"/>
+      <value enum="4" description="Discount - percentage points below par"/>
+      <value enum="6" description="Spread"/>
+      <value enum="9" description="Yield"/>
+      <value enum="20" description="Normal rate representation (e.g. FX rate)"/>
+      <value enum="21" description="Inverse rate representation (e.g. FX rate)"/>
+      <value enum="23" description="Upfront points"/>
+      <value enum="24" description="Interest rate"/>
+      <value enum="100" description="Discount Margin"/>
+      <value enum="103" description="Percentage of premium currency"/>
+    </field>
+    <field number="432" name="ExpireDate" type="LOCALMKTDATE"/>
+    <field number="442" name="MultiLegReportingType" type="CHAR">
+      <value enum="1" description="Single security (default if not specified)"/>
+      <value enum="2" description="Individual leg of a multi-leg security"/>
+      <value enum="3" description="Multi-leg security"/>
+    </field>
+	<field number="824" name="TradeLegRefID" type="STRING"/>
+    <field number="447" name="PartyIDSource" type="CHAR">
+      <value enum="C" description="Generally accepted market participant identifier (e.g. NASD mnemonic)"/>
+      <value enum="D" description="Proprietary / custom code"/>
+      <value enum="G" description="MIC (ISO 10383 - Market Identificer Code) (See &quot;Appendix 6-C&quot;)"/>
+      <value enum="N" description="Legal Entity Identifier"/>
+    </field>
+    <field number="448" name="PartyID" type="STRING"/>
+    <field number="452" name="PartyRole" type="INT">
+      <value enum="1" description="Executing firm"/>
+      <value enum="3" description="Client ID (formerly FIX 4.2 ClientID)"/>
+      <value enum="4" description="Clearing Firm"/>
+      <value enum="5" description="Investor ID"/>
+      <value enum="6" description="Introducing Firm"/>
+      <value enum="10" description="Settlement Location (formerly FIX 4.2 SettlLocation)"/>
+      <value enum="11" description="Order Origination Trader"/>
+      <value enum="12" description="Executing Trader (associated with Executing Firm - actually executes)"/>
+      <value enum="13" description="Order Originating Firm"/>
+      <value enum="16" description="Executing System"/>
+      <value enum="17" description="Contra Firm"/>
+      <value enum="21" description="Clearing Organization"/>
+      <value enum="24" description="Customer account"/>
+      <value enum="27" description="Buyer/Seller (Receiver/Deliverer)"/>
+      <value enum="35" description="Liquidity provider"/>
+      <value enum="36" description="Entering trader"/>
+      <value enum="38" description="Position account"/>
+      <value enum="44" description="Order Entry Operator ID"/>
+      <value enum="60" description="Introducing Broker"/>
+      <value enum="73" description="Execution Venue"/>
+      <value enum="83" description="Clearing account"/>
+      <value enum="102" description="Data repository"/>
+      <value enum="112" description="Guarantor"/>
+      <value enum="117" description="Sales person"/>
+      <value enum="119" description="Central Securities Depository (CSD)"/>
+      <value enum="1003" description="Fund Service Provider User"/>
+      <value enum="1004" description="Original counterparty"/>
+      <value enum="1005" description="Clearing channel"/>
+      <value enum="1014" description="Buyer"/>
+      <value enum="1015" description="Seller"/>
+    </field>
+    <field number="453" name="NoPartyIDs" type="NUMINGROUP"/>
+    <field number="454" name="NoSecurityAltID" type="NUMINGROUP"/>
+    <field number="455" name="SecurityAltID" type="STRING"/>
+    <field number="456" name="SecurityAltIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="2" description="SEDOL"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="6" description="ISO Currency Code"/>
+      <value enum="8" description="Exchange symbol"/>
+      <value enum="401" description="MMKT Base CUSIP 1"/>
+      <value enum="402" description="MMKT Base CUSIP 2"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="B" description="Wertpapier"/>
+      <value enum="H" description="Clearing house / Clearing organization"/>
+    </field>
+    <field number="457" name="NoUnderlyingSecurityAltID" type="NUMINGROUP"/>
+    <field number="458" name="UnderlyingSecurityAltID" type="STRING"/>
+    <field number="459" name="UnderlyingSecurityAltIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="8" description="Exchange Symbol"/>
+      <value enum="401" description="MMKT Base CUSIP 1"/>
+      <value enum="402" description="MMKT Base CUSIP 2"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="B" description="Wertpapier"/>
+    </field>
+    <field number="460" name="Product" type="INT">
+      <value enum="1" description="Agency"/>
+      <value enum="2" description="Commodity"/>
+      <value enum="3" description="Corporate&#xd;"/>
+      <value enum="4" description="Currency"/>
+      <value enum="5" description="Equity"/>
+      <value enum="6" description="Government"/>
+      <value enum="7" description="Index"/>
+      <value enum="8" description="Loan"/>
+      <value enum="9" description="Money Market"/>
+      <value enum="10" description="Mortgage"/>
+      <value enum="11" description="Municipal&#xd;"/>
+      <value enum="12" description="Other"/>
+      <value enum="13" description="Financing"/>
+    </field>
+    <field number="462" name="UnderlyingProduct" type="INT">
+      <value enum="1" description="Agency"/>
+      <value enum="2" description="Commodity"/>
+      <value enum="3" description="Corporate&#xd;"/>
+      <value enum="4" description="Currency"/>
+      <value enum="5" description="Equity"/>
+      <value enum="6" description="Government"/>
+      <value enum="7" description="Index"/>
+      <value enum="8" description="Loan"/>
+      <value enum="9" description="Money Market"/>
+      <value enum="10" description="Mortgage"/>
+      <value enum="11" description="Municipal&#xd;"/>
+      <value enum="12" description="Other"/>
+      <value enum="13" description="Financing"/>
+    </field>
+    <field number="467" name="IndividualAllocID" type="STRING"/>
+    <field number="470" name="CountryOfIssue" type="STRING"/>
+	<field number="518" name="NoContAmts" type="NUMINGROUP"/>
+	<field number="519" name="ContAmtType" type="INT">
+      <value enum="1" description="COMMISSION_AMOUNT"/>
+      <value enum="2" description="COMMISSION_PERCENT"/>
+      <value enum="3" description="INITIAL_CHARGE_AMOUNT"/>
+      <value enum="4" description="INITIAL_CHARGE_PERCENT"/>
+      <value enum="5" description="DISCOUNT_AMOUNT"/>
+      <value enum="6" description="DISCOUNT_PERCENT"/>
+      <value enum="7" description="DILUTION_LEVY_AMOUNT"/>
+      <value enum="8" description="DILUTION_LEVY_PERCENT"/>
+      <value enum="9" description="EXIT_CHARGE_AMOUNT"/>
+    </field>
+    <field number="520" name="ContAmtValue" type="FLOAT"/>
+    <field number="521" name="ContAmtCurr" type="CURRENCY"/>
+	 <field number="522" name="OwnerType" type="INT">
+      <value enum="1" description="INDIVIDUAL_INVESTOR"/>
+      <value enum="2" description="PUBLIC_COMPANY"/>
+      <value enum="3" description="PRIVATE_COMPANY"/>
+      <value enum="4" description="INDIVIDUAL_TRUSTEE"/>
+      <value enum="5" description="COMPANY_TRUSTEE"/>
+      <value enum="6" description="PENSION_PLAN"/>
+      <value enum="7" description="CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT"/>
+      <value enum="8" description="TRUSTS"/>
+      <value enum="9" description="FIDUCIARIES"/>
+      <value enum="10" description="NETWORKING_SUB_ACCOUNT"/>
+      <value enum="11" description="NON_PROFIT_ORGANIZATION"/>
+      <value enum="12" description="CORPORATE_BODY"/>
+      <value enum="13" description="NOMINEE"/>
+    </field>
+    <field number="523" name="PartySubID" type="STRING"/>
+    <field number="524" name="NestedPartyID" type="STRING"/>
+    <field number="525" name="NestedPartyIDSource" type="CHAR">
+      <value enum="B" description="BIC (Bank Identification Code - SWIFT managed) code. (ISO9362 - See &quot;Appendix 6-B&quot;)"/>
+      <value enum="D" description="Proprietary / custom code"/>
+      <value enum="N" description="Legal Entity Identifier"/>
+    </field>
+	<field number="526" name="SecondaryClOrdID" type="STRING"/>
+    <field number="527" name="SecondaryExecID" type="STRING"/>
+    <field number="528" name="OrderCapacity" type="CHAR">
+      <value enum="A" description="Agency"/>
+      <value enum="P" description="Principal (Note for CMS purposes, &quot;Principal&quot; includes &quot;Proprietary&quot;)"/>
+    </field>
+	<field number="529" name="OrderRestrictions" type="MULTIPLEVALUESTRING">
+      <value enum="1" description="PROGRAM_TRADE"/>
+      <value enum="2" description="INDEX_ARBITRAGE"/>
+      <value enum="3" description="NON_INDEX_ARBITRAGE"/>
+      <value enum="4" description="COMPETING_MARKET_MAKER"/>
+      <value enum="5" description="ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY"/>
+      <value enum="6" description="ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY"/>
+      <value enum="7" description="FOREIGN_ENTITY"/>
+      <value enum="8" description="EXTERNAL_MARKET_PARTICIPANT"/>
+      <value enum="9" description="EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE"/>
+      <value enum="A" description="RISKLESS_ARBITRAGE"/>
+    </field>
+    <field number="538" name="NestedPartyRole" type="INT">
+      <value enum="1" description="Executing Firm (formerly FIX 4.2 ExecBroker)"/>
+      <value enum="4" description="Clearing firm"/>
+      <value enum="12" description="Executing Trader (associated with Executing Firm - actually executes)"/>
+      <value enum="14" description="Giveup Clearing Firm (firm to which trade is given up)"/>
+      <value enum="17" description="Contra firm"/>
+      <value enum="24" description="Customer account"/>
+      <value enum="26" description="Correspondent Broker"/>
+      <value enum="83" description="Clearing account"/>
+    </field>
+	<field number="856" name="TradeReportType" type="INT">
+      <value enum="0" description="SUBMIT"/>
+      <value enum="1" description="ALLEGED"/>
+      <value enum="2" description="ACCEPT"/>
+      <value enum="3" description="DECLINE"/>
+      <value enum="4" description="ADDENDUM"/>
+      <value enum="5" description="NO_WAS"/>
+      <value enum="6" description="TRADE_REPORT_CANCEL"/>
+      <value enum="7" description="LOCKED_IN_TRADE_BREAK"/>
+    </field>
+	<field number="568" name="TradeRequestID" type="STRING"/>
+    <field number="569" name="TradeRequestType" type="INT">
+      <value enum="0" description="ALL_TRADES"/>
+      <value enum="1" description="MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST"/>
+      <value enum="2" description="UNMATCHED_TRADES_THAT_MATCH_CRITERIA"/>
+      <value enum="3" description="UNREPORTED_TRADES_THAT_MATCH_CRITERIA"/>
+      <value enum="4" description="ADVISORIES_THAT_MATCH_CRITERIA"/>
+    </field>
+	
+    <field number="539" name="NoNestedPartyIDs" type="NUMINGROUP"/>
+    <field number="541" name="MaturityDate" type="LOCALMKTDATE"/>
+    <field number="548" name="CrossID" type="STRING"/>
+	<field number="552" name="NoSides" type="NUMINGROUP">
+      <value enum="1" description="ONE_SIDE"/>
+      <value enum="2" description="BOTH_SIDES"/>
+    </field>
+    <field number="555" name="NoLegs" type="NUMINGROUP"/>
+	<field number="487" name="TradeReportTransType" type="INT">
+      <value enum="0" description="NEW"/>
+      <value enum="1" description="CANCEL"/>
+      <value enum="2" description="REPLACE"/>
+      <value enum="3" description="RELEASE"/>
+      <value enum="4" description="REVERSE"/>
+    </field>
+    <field number="556" name="LegCurrency" type="CURRENCY"/>
+    <field number="566" name="LegPrice" type="PRICE"/>
+	<field number="571" name="TradeReportID" type="STRING"/>
+	<field number="573" name="MatchStatus" type="CHAR">
+      <value enum="0" description="COMPARED_MATCHED_OR_AFFIRMED"/>
+      <value enum="1" description="UNCOMPARED_UNMATCHED_OR_UNAFFIRMED"/>
+      <value enum="2" description="ADVISORY_OR_ALERT"/>
+    </field>
+    <field number="574" name="MatchType" type="STRING"/>
+    <field number="575" name="OddLot" type="BOOLEAN"/>
+    <field number="576" name="NoClearingInstructions" type="NUMINGROUP"/>
+    <field number="577" name="ClearingInstruction" type="INT">
+      <value enum="0" description="PROCESS_NORMALLY"/>
+      <value enum="1" description="EXCLUDE_FROM_ALL_NETTING"/>
+      <value enum="2" description="BILATERAL_NETTING_ONLY"/>
+      <value enum="3" description="EX_CLEARING"/>
+      <value enum="4" description="SPECIAL_TRADE"/>
+      <value enum="5" description="MULTILATERAL_NETTING"/>
+      <value enum="6" description="CLEAR_AGAINST_CENTRAL_COUNTERPARTY"/>
+      <value enum="7" description="EXCLUDE_FROM_CENTRAL_COUNTERPARTY"/>
+      <value enum="8" description="MANUAL_MODE"/>
+      <value enum="9" description="AUTOMATIC_POSTING_MODE"/>
+      <value enum="10" description="AUTOMATIC_GIVE_UP_MODE"/>
+      <value enum="11" description="QUALIFIED_SERVICE_REPRESENTATIVE"/>
+      <value enum="12" description="CUSTOMER_TRADE"/>
+      <value enum="13" description="SELF_CLEARING"/>
+	  <value enum="4000" description="Agency model"/>
+      <value enum="4001" description="Principal model"/>
+    </field>
+    <field number="578" name="TradeInputSource" type="STRING"/>
+    <field number="579" name="TradeInputDevice" type="STRING"/>
+    <field number="582" name="CustOrderCapacity" type="INT">
+      <value enum="1" description="MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT"/>
+      <value enum="2" description="CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT"/>
+      <value enum="3" description="MEMBER_TRADING_FOR_ANOTHER_MEMBER"/>
+      <value enum="4" description="ALL_OTHER"/>
+    </field>
+
+    <field number="587" name="LegSettlType" type="STRING">
+      <value enum="0" description="Regular / FX Spot settlement (T+1 or T+2 depending on currency)"/>
+      <value enum="1" description="Cash (TOD / T+0)"/>
+      <value enum="2" description="Next Day (TOM / T+1)"/>
+      <value enum="3" description="T+2"/>
+      <value enum="4" description="T+3"/>
+      <value enum="5" description="T+4"/>
+      <value enum="6" description="Future"/>
+      <value enum="B" description="Broken date"/>
+      <value enum="C" description="FX Spot Next settlement (Spot+1, aka next day)"/>
+      <value enum="O" description="Overnight next"/>
+      <value enum="T" description="Tomorrow next"/>
+    </field>
+    <field number="588" name="LegSettlDate" type="LOCALMKTDATE"/>
+    <field number="600" name="LegSymbol" type="STRING"/>
+    <field number="602" name="LegSecurityID" type="STRING"/>
+    <field number="603" name="LegSecurityIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="8" description="Exchange symbol"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="B" description="Wertpapier"/>
+      <value enum="I" description="ISDA/FpML product specification (XML in LegSecurityXML(1872))"/>
+      <value enum="P" description="Markit RED pair CLIP"/>
+    </field>
+    <field number="607" name="LegProduct" type="INT">
+      <value enum="3" description="Corporate&#xd;"/>
+      <value enum="4" description="Currency"/>
+      <value enum="6" description="Government"/>
+      <value enum="10" description="Mortgage"/>
+      <value enum="12" description="Other"/>
+    </field>
+    <field number="609" name="LegSecurityType" type="STRING">
+      <value enum="BUYSELL" description="Buy Sellback"/>
+      <value enum="CAN" description="Canadian Treasury Notes"/>
+      <value enum="CASH" description="Cash"/>
+      <value enum="CDS" description="Credit Default Swap"/>
+      <value enum="CORP" description="Corporate Bond"/>
+      <value enum="CTB" description="Canadian Treasury Bills"/>
+      <value enum="DVPLDG" description="Delivery versus pledge"/>
+      <value enum="EUCORP" description="Euro Corporate Bond"/>
+      <value enum="EUFRN" description="Euro Corporate Floating Rate Notes"/>
+      <value enum="EUSOV" description="Euro Sovereign"/>
+      <value enum="EUSUPRA" description="Euro Supranational Coupons"/>
+      <value enum="FAC" description="Federal Agency Coupon"/>
+      <value enum="FOR" description="Foreign Exchange Contract"/>
+      <value enum="FRN" description="US Corporate Floating Rate Notes"/>
+      <value enum="FUT" description="Future"/>
+      <value enum="FXFWD" description="FX Forward"/>
+      <value enum="FXNDF" description="Non-deliverable forward"/>
+      <value enum="FXSPOT" description="FX Spot"/>
+      <value enum="IRS" description="Interest Rate Swap"/>
+      <value enum="REPO" description="Repurchase"/>
+      <value enum="SOV" description="Sovereign"/>
+      <value enum="SUPRA" description="USD Supranational Coupons "/>
+      <value enum="TB" description="Treasury Bill - non US"/>
+      <value enum="TBILL" description="US Treasury Bill"/>
+      <value enum="TBOND" description="US Treasury Bond"/>
+      <value enum="TCAL" description="Principal Strip of a Callable Bond or Note"/>
+      <value enum="TINT" description="Interest Strip from any Bond or Note"/>
+      <value enum="TIPS" description="Treasury Inflation Protected Securities"/>
+      <value enum="TNOTE" description="US Treasury Note"/>
+      <value enum="TPRN" description="Principal Strip from a Non-Callable Bond or Note"/>
+    </field>
+    <field number="611" name="LegMaturityDate" type="LOCALMKTDATE"/>
+    <field number="612" name="LegStrikePrice" type="PRICE"/>
+    <field number="615" name="LegCouponRate" type="PERCENTAGE"/>
+    <field number="617" name="LegIssuer" type="STRING"/>
+    <field number="624" name="LegSide" type="CHAR">
+      <value enum="1" description="Buy"/>
+      <value enum="2" description="Sell"/>
+    </field>
+	<field number="625" name="TradingSessionSubID" type="STRING"/>
+	<field number="943" name="TimeBracket" type="STRING"/>
+    <field number="626" name="AllocType" type="INT">
+      <value enum="1" description="Calculated (includes MiscFees and NetMoney)"/>
+      <value enum="2" description="Preliminary (without MiscFees and NetMoney)"/>
+    </field>
+	<field number="81" name="ProcessCode" type="CHAR">
+      <value enum="0" description="REGULAR"/>
+      <value enum="1" description="SOFT_DOLLAR"/>
+      <value enum="2" description="STEP_IN"/>
+      <value enum="3" description="STEP_OUT"/>
+      <value enum="4" description="SOFT_DOLLAR_STEP_IN"/>
+      <value enum="5" description="SOFT_DOLLAR_STEP_OUT"/>
+      <value enum="6" description="PLAN_SPONSOR"/>
+    </field>
+    <field number="627" name="NoHops" type="NUMINGROUP"/>
+    <field number="628" name="HopCompID" type="STRING"/>
+    <field number="629" name="HopSendingTime" type="UTCTIMESTAMP"/>
+    <field number="630" name="HopRefID" type="SEQNUM"/>
+	<field number="635" name="ClearingFeeIndicator" type="STRING">
+      <value enum="B" description="CBOE_MEMBER"/>
+      <value enum="C" description="NON_MEMBER_AND_CUSTOMER"/>
+      <value enum="E" description="EQUITY_MEMBER_AND_CLEARING_MEMBER"/>
+      <value enum="F" description="FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS"/>
+      <value enum="H" description="FIRMS_106H_AND_106J"/>
+      <value enum="I" description="GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS"/>
+      <value enum="L" description="LESSEE_AND_106F_EMPLOYEES"/>
+      <value enum="M" description="ALL_OTHER_OWNERSHIP_TYPES"/>
+    </field>
+    <field number="637" name="LegLastPx" type="PRICE"/>
+    <field number="654" name="LegRefID" type="STRING"/>
+    <field number="660" name="AcctIDSource" type="INT">
+      <value enum="4" description="OMGEO (AlertID)"/>
+      <value enum="99" description="Other (custom or proprietary)"/>
+    </field>
+	<field number="581" name="AccountType" type="INT">
+      <value enum="1" description="ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS"/>
+      <value enum="2" description="ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS"/>
+      <value enum="3" description="HOUSE_TRADER"/>
+      <value enum="4" description="FLOOR_TRADER"/>
+      <value enum="6" description="ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED"/>
+      <value enum="7" description="ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED"/>
+      <value enum="8" description="JOINT_BACKOFFICE_ACCOUNT"/>
+    </field>
+    <field number="661" name="AllocAcctIDSource" type="INT">
+      <value enum="4" description="OMGEO (AlertID)"/>
+      <value enum="99" description="Other (custom or proprietary)"/>
+    </field>
+    <field number="662" name="BenchmarkPrice" type="PRICE"/>
+    <field number="663" name="BenchmarkPriceType" type="INT">
+      <value enum="1" description="Percent of par"/>
+      <value enum="9" description="Yield"/>
+    </field>
+    <field number="669" name="LastParPx" type="PRICE"/>
+    <field number="675" name="LegSettlCurrency" type="CURRENCY"/>
+    <field number="681" name="LegBidPx" type="PRICE"/>
+    <field number="683" name="NoLegStipulations" type="NUMINGROUP"/>
+	<field number="564" name="LegPositionEffect" type="CHAR"/>
+	<field number="565" name="LegCoveredOrUncovered" type="INT"/>
+    <field number="684" name="LegOfferPx" type="PRICE"/>
+    <field number="686" name="LegPriceType" type="INT">
+      <value enum="103" description="Percentage of premium currency"/>
+    </field>
+    <field number="687" name="LegQty" type="QTY"/>
+    <field number="688" name="LegStipulationType" type="STRING">
+      <value enum="GDLV" description="Good delivery"/>
+      <value enum="TEXT" description="Free form text"/>
+      <value enum="TNP" description="Total number of pools"/>
+    </field>
+    <field number="689" name="LegStipulationValue" type="STRING"/>
+	<field number="690" name="LegSwapType" type="INT">
+      <value enum="1" description="PAR_FOR_PAR"/>
+      <value enum="2" description="MODIFIED_DURATION"/>
+      <value enum="4" description="RISK"/>
+      <value enum="5" description="PROCEEDS"/>
+    </field>
+    <field number="691" name="Pool" type="STRING"/>
+    <field number="696" name="YieldRedemptionDate" type="LOCALMKTDATE"/>
+    <field number="699" name="BenchmarkSecurityID" type="STRING"/>
+	<field number="821" name="OrderInputDevice" type="STRING"/>
+    <field number="822" name="UnderlyingTradingSessionID" type="STRING"/>
+    <field number="823" name="UnderlyingTradingSessionSubID" type="STRING"/>
+	<field number="825" name="ExchangeRule" type="STRING"/>
+    <field number="826" name="TradeAllocIndicator" type="INT">
+      <value enum="0" description="ALLOCATION_NOT_REQUIRED"/>
+      <value enum="1" description="ALLOCATION_REQUIRED"/>
+      <value enum="2" description="USE_ALLOCATION_PROVIDED_WITH_THE_TRADE"/>
+    </field>
+	<field number="591" name="PreallocMethod" type="CHAR">
+      <value enum="0" description="PRO_RATA"/>
+      <value enum="1" description="DO_NOT_PRO_RATA"/>
+    </field>
+    <field number="711" name="NoUnderlyings" type="NUMINGROUP"/>
+    <field number="736" name="AllocSettlCurrency" type="CURRENCY"/>
+    <field number="737" name="AllocSettlCurrAmt" type="AMT"/>
+    <field number="742" name="AllocAccruedInterestAmt" type="AMT"/>
+	<field number="748" name="TotNumTradeReports" type="INT"/>
+    <field number="749" name="TradeRequestResult" type="INT">
+      <value enum="0" description="SUCCESSFUL"/>
+      <value enum="1" description="INVALID_OR_UNKNOWN_INSTRUMENT"/>
+      <value enum="2" description="INVALID_TYPE_OF_TRADE_REQUESTED"/>
+      <value enum="3" description="INVALID_PARTIES"/>
+      <value enum="4" description="INVALID_TRANSPORT_TYPE_REQUESTED"/>
+      <value enum="5" description="INVALID_DESTINATION_REQUESTED"/>
+      <value enum="8" description="TRADEREQUESTTYPE_NOT_SUPPORTED"/>
+      <value enum="9" description="UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST"/>
+      <value enum="99" description="OTHER"/>
+    </field>
+	
+    <field number="761" name="BenchmarkSecurityIDSource" type="STRING">
+      <value enum="1" description="CUSIP"/>
+      <value enum="4" description="ISIN"/>
+      <value enum="8" description="Exchange symbol"/>
+      <value enum="A" description="Bloomberg Identifier - The BBID"/>
+      <value enum="I" description="ISDA/FpML product specification (XML in SecurityXML(1185))"/>
+      <value enum="P" description="Markit RED pair CLIP"/>
+    </field>
+    <field number="762" name="SecuritySubType" type="STRING">
+      <value enum="GC" description="General collateral repo, specify the collateral label in UnderlyingSymbol (311)."/>
+      <value enum="PR" description="Preferred stock"/>
+    </field>
+    <field number="768" name="NoTrdRegTimestamps" type="NUMINGROUP"/>
+    <field number="769" name="TrdRegTimestamp" type="UTCTIMESTAMP"/>
+    <field number="770" name="TrdRegTimestampType" type="INT">
+      <value enum="2" description="Time in"/>
+      <value enum="6" description="Desk receipt"/>
+      <value enum="100" description="Last updated"/>
+      <value enum="101" description="Last affirmed"/>
+    </field>
+    <field number="775" name="BookingType" type="INT">
+      <value enum="0" description="Regular booking"/>
+      <value enum="1" description="Contract for difference (CFD)"/>
+    </field>
+    <field number="780" name="AllocSettlInstType" type="INT">
+      <value enum="0" description="Use default instructions"/>
+      <value enum="1" description="Derive from parameters provided"/>
+      <value enum="2" description="Full details provided"/>
+      <value enum="3" description="SSI DB IDs provided"/>
+      <value enum="4" description="Phone for instructions"/>
+    </field>
+    <field number="781" name="NoSettlPartyIDs" type="NUMINGROUP"/>
+    <field number="782" name="SettlPartyID" type="STRING"/>
+    <field number="783" name="SettlPartyIDSource" type="CHAR">
+      <value enum="D" description="Proprietary / custom code"/>
+    </field>
+    <field number="784" name="SettlPartyRole" type="INT"/>
+    <field number="785" name="SettlPartySubID" type="STRING"/>
+    <field number="786" name="SettlPartySubIDType" type="INT"/>
+    <field number="787" name="DlvyInstType" type="CHAR">
+      <value enum="C" description="Cash"/>
+      <value enum="S" description="Securities"/>
+    </field>
+    <field number="788" name="TerminationType" type="INT">
+      <value enum="1" description="Overnight"/>
+      <value enum="2" description="Term"/>
+      <value enum="4" description="Open"/>
+    </field>
+    <field number="793" name="SecondaryAllocID" type="STRING"/>
+    <field number="797" name="CopyMsgIndicator" type="BOOLEAN">
+      <value enum="N" description="Not a copy (default if not sent)"/>
+      <value enum="Y" description="Is a copy"/>
+    </field>
+    <field number="801" name="NoSettlPartySubIDs" type="NUMINGROUP"/>
+    <field number="802" name="NoPartySubIDs" type="NUMINGROUP"/>
+    <field number="803" name="PartySubIDType" type="INT">
+      <value enum="1" description="Firm"/>
+      <value enum="2" description="Person"/>
+      <value enum="4" description="Application"/>
+      <value enum="5" description="Full legal name of firm"/>
+      <value enum="9" description="Contact name"/>
+      <value enum="17" description="CSD participant member code"/>
+      <value enum="25" description="Location desk"/>
+      <value enum="34" description="Address City"/>
+      <value enum="38" description="Address Country (ISO country code)"/>
+      <value enum="48" description="U.S. person"/>
+      <value enum="49" description="Reporting entity indicator"/>
+      <value enum="56" description="Deal identifier"/>
+      <value enum="59" description="Futures Commission Merchant (FCM) code"/>
+      <value enum="4000" description="Bloomberg user identification - to be used only with PartyRole = 11"/>
+      <value enum="4001" description="Bloomberg customer alternate ID"/>
+      <value enum="4005" description="Investment manager/firm (custom enum value) (Must be provided by the buy-side) In drop copies to the buy-side of sell-side initiated trades via Bloomberg screens, this will be populated by Bloomberg."/>
+      <value enum="4007" description="Bloomberg UUID of salesperson"/>
+      <value enum="4010" description="Broker alias, e.g. Bloomberg&apos;s broker group code, Broker&apos;s ID for an IM or IDB (ICAP), etc."/>
+      <value enum="4011" description="TOMS/POMS customer&apos;s counterparty code"/>
+      <value enum="4012" description="Trader"/>
+	  <value enum="4013" description="No description"/>
+      <value enum="4014" description="Firm number"/>
+      <value enum="4015" description="Bloomberg customer name"/>
+      <value enum="4016" description="Bloomberg customer number"/>
+      <value enum="4019" description="Direct Clearing Member"/>
+      <value enum="4025" description="Legal Entity Identifier"/>
+      <value enum="4042" description="Counterparty&apos;s FXPV NEW Counterparty Identifier 1"/>
+      <value enum="4043" description="Counterparty&apos;s FXPV NEW Counterparty Identifier 2"/>
+      <value enum="4044" description="Counterparty&apos;s FXPV NEW Counterparty Identifier 3"/>
+      <value enum="4045" description="Counterparty&apos;s FXPV NEW Counterparty Identifier 4"/>
+      <value enum="4046" description="Liquidity Maker"/>
+      <value enum="4047" description="Liquidity Taker"/>
+    </field>
+    <field number="810" name="UnderlyingPx" type="PRICE"/>
+    <field number="811" name="PriceDelta" type="FLOAT"/>
+    <field number="828" name="TrdType" type="INT">
+      <value enum="0" description="Regular trade (default if not specified)"/>
+      <value enum="7" description="Bunched trade/order"/>
+      <value enum="58" description="Block swap trade"/>
+      <value enum="2003" description="Termination"/>
+    </field>
+	<field number="829" name="TrdSubType" type="INT"/>
+	 <field number="852" name="PublishTrdIndicator" type="BOOLEAN"/>
+    <field number="853" name="ShortSaleReason" type="INT">
+      <value enum="0" description="DEALER_SOLD_SHORT"/>
+      <value enum="1" description="DEALER_SOLD_SHORT_EXEMPT"/>
+      <value enum="2" description="SELLING_CUSTOMER_SOLD_SHORT"/>
+      <value enum="3" description="SELLING_CUSTOMER_SOLD_SHORT_EXEMPT"/>
+      <value enum="4" description="QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT"/>
+      <value enum="5" description="QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT"/>
+    </field>
+	<field number="855" name="SecondaryTrdType" type="INT"/>
+    <field number="854" name="QtyType" type="INT">
+      <value enum="0" description="Units (shares, par, currency)"/>
+      <value enum="1" description="Contracts"/>
+    </field>
+    <field number="857" name="AllocNoOrdersType" type="INT">
+      <value enum="0" description="Not specified"/>
+      <value enum="1" description="Explicit list provided"/>
+    </field>
+    <field number="860" name="AvgParPx" type="PRICE"/>
+    <field number="864" name="NoEvents" type="NUMINGROUP"/>
+    <field number="865" name="EventType" type="INT">
+      <value enum="2" description="Call"/>
+      <value enum="8" description="Swap start date"/>
+      <value enum="9" description="Swap end date"/>
+      <value enum="20" description="Minimum Notice"/>
+      <value enum="1002" description="Original effective date"/>
+      <value enum="1003" description="Original end date"/>
+    </field>
+    <field number="866" name="EventDate" type="LOCALMKTDATE"/>
+    <field number="873" name="DatedDate" type="LOCALMKTDATE"/>
+    <field number="874" name="InterestAccrualDate" type="LOCALMKTDATE"/>
+    <field number="879" name="UnderlyingQty" type="QTY"/>
+    <field number="882" name="UnderlyingDirtyPrice" type="PRICE"/>
+    <field number="883" name="UnderlyingEndPrice" type="PRICE"/>
+    <field number="884" name="UnderlyingStartValue" type="AMT"/>
+    <field number="887" name="NoUnderlyingStips" type="NUMINGROUP"/>
+    <field number="888" name="UnderlyingStipType" type="STRING">
+      <value enum="COLLAMT" description="Collateralization fixed amount"/>
+      <value enum="COLLPCT" description="Collateralization percentage"/>
+      <value enum="HAIRCUT" description="Valuation discount of the security"/>
+    </field>
+    <field number="889" name="UnderlyingStipValue" type="STRING"/>
+	<field number="891" name="MiscFeeBasis" type="INT">
+      <value enum="0" description="ABSOLUTE"/>
+      <value enum="1" description="PER_UNIT"/>
+      <value enum="2" description="PERCENTAGE"/>
+    </field>
+    <field number="898" name="MarginRatio" type="PERCENTAGE"/>
+    <field number="911" name="TotNumReports" type="INT"/>
+    <field number="913" name="AgreementDesc" type="STRING"/>
+    <field number="914" name="AgreementID" type="STRING"/>
+    <field number="915" name="AgreementDate" type="LOCALMKTDATE"/>
+    <field number="916" name="StartDate" type="LOCALMKTDATE"/>
+    <field number="917" name="EndDate" type="LOCALMKTDATE"/>
+    <field number="919" name="DeliveryType" type="INT">
+      <value enum="0" description="&quot;Versus Payment&quot;: Deliver (if sell) or Receive (if buy) vs. (against) Payment"/>
+      <value enum="2" description="Tri-Party"/>
+    </field>
+    <field number="920" name="EndAccruedInterestAmt" type="AMT"/>
+    <field number="921" name="StartCash" type="AMT"/>
+    <field number="922" name="EndCash" type="AMT"/>
+    <field number="947" name="StrikeCurrency" type="CURRENCY"/>
+    <field number="961" name="HostCrossID" type="STRING"/>
+    <field number="1003" name="TradeID" type="STRING"/>
+    <field number="1015" name="AsOfIndicator" type="CHAR">
+      <value enum="0" description="false - Trade is not an AsOf trade"/>
+      <value enum="1" description="true - Trade is an AsOf trade"/>
+    </field>
+    <field number="1018" name="NoInstrumentParties" type="NUMINGROUP"/>
+    <field number="1019" name="InstrumentPartyID" type="STRING"/>
+    <field number="1040" name="SecondaryTradeID" type="STRING"/>
+    <field number="1050" name="InstrumentPartyIDSource" type="CHAR">
+      <value enum="D" description="Proprietary/Custom code"/>
+    </field>
+    <field number="1051" name="InstrumentPartyRole" type="INT">
+      <value enum="1009" description="Issuer"/>
+    </field>
+    <field number="1052" name="NoInstrumentPartySubIDs" type="NUMINGROUP"/>
+    <field number="1053" name="InstrumentPartySubID" type="STRING"/>
+    <field number="1054" name="InstrumentPartySubIDType" type="INT">
+      <value enum="4036" description="Parent company"/>
+    </field>
+    <field number="1056" name="CalculatedCcyLastQty" type="QTY"/>
+    <field number="1057" name="AggressorIndicator" type="BOOLEAN">
+      <value enum="N" description="Order initiator is passive"/>
+      <value enum="Y" description="Order initiator is aggressor"/>
+    </field>
+    <field number="1058" name="NoUndlyInstrumentParties" type="NUMINGROUP"/>
+    <field number="1059" name="UnderlyingInstrumentPartyID" type="STRING"/>
+    <field number="1060" name="UnderlyingInstrumentPartyIDSource" type="CHAR">
+      <value enum="D" description="Proprietary / custom code"/>
+    </field>
+    <field number="1061" name="UnderlyingInstrumentPartyRole" type="INT">
+      <value enum="21" description="Clearing organization"/>
+    </field>
+    <field number="1071" name="LastSwapPoints" type="PRICEOFFSET"/>
+    <field number="1073" name="LegLastForwardPoints" type="PRICEOFFSET"/>
+    <field number="1074" name="LegCalculatedCcyLastQty" type="QTY"/>
+    <field number="1128" name="ApplVerID" type="STRING">
+      <value enum="0" description="FIX27"/>
+      <value enum="1" description="FIX30"/>
+      <value enum="2" description="FIX40"/>
+      <value enum="3" description="FIX41"/>
+      <value enum="4" description="FIX42"/>
+      <value enum="5" description="FIX43"/>
+      <value enum="6" description="FIX44"/>
+      <value enum="7" description="FIX50"/>
+      <value enum="8" description="FIX50SP1"/>
+      <value enum="9" description="FIX50SP2"/>
+    </field>
+    <field number="1129" name="CstmApplVerID" type="STRING"/>
+    <field number="1130" name="RefApplVerID" type="STRING">
+      <value enum="9" description="FIX 5.0 SP2"/>
+    </field>
+    <field number="1131" name="RefCstmApplVerID" type="STRING"/>
+    <field number="1184" name="SecurityXMLLen" type="LENGTH"/>
+    <field number="1185" name="SecurityXML" type="XMLDATA"/>
+    <field number="1186" name="SecurityXMLSchema" type="STRING"/>
+    <field number="1188" name="Volatility" type="FLOAT"/>
+    <field number="1193" name="SettlMethod" type="STRING">
+      <value enum="C" description="Cash settlement required"/>
+      <value enum="P" description="Physical settlement required"/>
+    </field>
+    <field number="1194" name="ExerciseStyle" type="INT">
+      <value enum="0" description="European"/>
+      <value enum="1" description="American"/>
+      <value enum="2" description="Bermuda"/>
+    </field>
+    <field number="1300" name="MarketSegmentID" type="STRING">
+      <value enum="BETP" description="Bloomberg Japanese Electronic Trading Platform"/>
+      <value enum="BGL" description="Bloomberg Platform"/>
+      <value enum="BMTF" description="Bloomberg Multilateral Trading Facility"/>
+      <value enum="BSEF" description="Bloomberg Swap Execution Facility"/>
+    </field>
+    <field number="1358" name="LegPutOrCall" type="INT">
+      <value enum="0" description="Put"/>
+      <value enum="1" description="Call"/>
+    </field>
+    <field number="1379" name="LegVolatility" type="FLOAT"/>
+    <field number="1406" name="RefApplExtID" type="INT"/>
+    <field number="1409" name="SessionStatus" type="INT">
+      <value enum="0" description="Session active"/>
+      <value enum="1" description="Session password changed"/>
+      <value enum="2" description="Session password due to expire"/>
+      <value enum="3" description="New session password does not comply with policy"/>
+      <value enum="4" description="Session logout complete"/>
+      <value enum="5" description="Invalid username or password"/>
+      <value enum="6" description="Account locked"/>
+      <value enum="7" description="Logons are not allowed at this time"/>
+      <value enum="8" description="Password expired"/>
+      <value enum="9" description="Received MsgSeqNum(34) is too low."/>
+      <value enum="10" description="Received NextExpectedMsgSeqNum(789) is too high."/>
+    </field>
+    <field number="1420" name="LegExerciseStyle" type="INT">
+      <value enum="0" description="European"/>
+      <value enum="1" description="American"/>
+      <value enum="2" description="Bermuda"/>
+    </field>
+    <field number="1445" name="NoRateSources" type="NUMINGROUP"/>
+    <field number="1446" name="RateSource" type="INT">
+      <value enum="99" description="Other"/>
+    </field>
+    <field number="1447" name="RateSourceType" type="INT">
+      <value enum="0" description="Primary"/>
+    </field>
+    <field number="1448" name="ReferencePage" type="STRING"/>
+    <field number="1457" name="AttachmentPoint" type="PERCENTAGE"/>
+    <field number="1458" name="DetachmentPoint" type="PERCENTAGE"/>
+    <field number="1483" name="NoComplexEvents" type="NUMINGROUP"/>
+    <field number="1484" name="ComplexEventType" type="INT">
+      <value enum="3" description="Knock-in up"/>
+      <value enum="4" description="Knock-in down"/>
+      <value enum="5" description="Knock-out up"/>
+      <value enum="6" description="Knock-out down"/>
+      <value enum="10" description="One-touch"/>
+    </field>
+    <field number="1486" name="ComplexEventPrice" type="PRICE"/>
+    <field number="1489" name="ComplexEventPriceTimeType" type="INT">
+      <value enum="1" description="Expiration"/>
+      <value enum="2" description="Immediate (At Any Time)"/>
+    </field>
+    <field number="1490" name="ComplexEventCondition" type="INT">
+      <value enum="1" description="And"/>
+      <value enum="2" description="Or"/>
+    </field>
+    <field number="1491" name="NoComplexEventDates" type="NUMINGROUP"/>
+    <field number="1492" name="ComplexEventStartDate" type="UTCDATEONLY"/>
+    <field number="1493" name="ComplexEventEndDate" type="UTCDATEONLY"/>
+    <field number="1788" name="LegID" type="STRING"/>
+    <field number="1803" name="AuctionType" type="INT">
+      <value enum="100" description="English (multiple unit) auction - winning bids will be executed at the price and quantity the bidders submitted (multiple price auction)"/>
+      <value enum="101" description="Dutch (multiple unit) auction - winning bids will be executed at the lowest winning price for the quantity the bidders submitted (uniform price auction)"/>
+    </field>
+    <field number="1826" name="EventTimePeriod" type="INT"/>
+    <field number="1827" name="EventTimeUnit" type="STRING">
+      <value enum="D" description="Day"/>
+      <value enum="H" description="Hour"/>
+      <value enum="Min" description="Minute"/>
+      <value enum="Mo" description="Month"/>
+      <value enum="S" description="Second"/>
+      <value enum="Wk" description="Week"/>
+      <value enum="Yr" description="Year"/>
+    </field>
+    <field number="1828" name="LastQtyVariance" type="QTY"/>
+    <field number="1832" name="ClearedIndicator" type="INT">
+      <value enum="0" description="Not cleared"/>
+      <value enum="1" description="Cleared"/>
+      <value enum="3" description="Rejected - trade rejected by clearing organization"/>
+      <value enum="101" description="Error - an interim state indicating a technical error (e.g. invalid setup to be corrected) that can be corrected and trade reprocessed for clearing"/>
+    </field>
+    <field number="1871" name="LegSecurityXMLLen" type="LENGTH"/>
+    <field number="1872" name="LegSecurityXML" type="XMLDATA"/>
+    <field number="1873" name="LegSecurityXMLSchema" type="STRING"/>
+    <field number="1903" name="RegulatoryTradeID" type="STRING"/>
+    <field number="1904" name="RegulatoryTradeIDEvent" type="INT">
+      <value enum="0" description="Initial block trade"/>
+      <value enum="1" description="Allocation"/>
+      <value enum="2" description="Clearing"/>
+      <value enum="3" description="Compression"/>
+      <value enum="4" description="Novation"/>
+      <value enum="5" description="Termination"/>
+    </field>
+    <field number="1905" name="RegulatoryTradeIDSource" type="STRING"/>
+    <field number="1906" name="RegulatoryTradeIDType" type="INT">
+      <value enum="0" description="Current"/>
+      <value enum="1" description="Previous"/>
+      <value enum="2" description="Block"/>
+      <value enum="3" description="Related"/>
+    </field>
+	<field number="325" name="UnsolicitedIndicator" type="BOOLEAN"/>
+    <field number="1907" name="NoRegulatoryTradeIDs" type="NUMINGROUP"/>
+    <field number="1908" name="NoAllocRegulatoryTradeIDs" type="NUMINGROUP"/>
+    <field number="1909" name="AllocRegulatoryTradeID" type="STRING"/>
+    <field number="1910" name="AllocRegulatoryTradeIDSource" type="STRING"/>
+    <field number="1911" name="AllocRegulatoryTradeIDEvent" type="INT">
+      <value enum="0" description="Initial block trade"/>
+      <value enum="1" description="Allocation"/>
+      <value enum="2" description="Clearing"/>
+      <value enum="3" description="Compression"/>
+      <value enum="4" description="Novation"/>
+      <value enum="5" description="Termination"/>
+    </field>
+    <field number="1912" name="AllocRegulatoryTradeIDType" type="INT">
+      <value enum="0" description="Current"/>
+      <value enum="1" description="Previous"/>
+      <value enum="2" description="Block"/>
+      <value enum="3" description="Related"/>
+    </field>
+	<field number="912" name="LastRptRequested" type="BOOLEAN"/>
+    <field number="1913" name="NumOfCompetitors" type="INT"/>
+    <field number="1917" name="CoverPrice" type="PRICE"/>
+    <field number="1928" name="MandatoryClearingIndicator" type="BOOLEAN"/>
+    <field number="1934" name="RegulatoryReportType" type="INT">
+      <value enum="0" description="Real-time (RT)"/>
+      <value enum="1" description="Primary economic terms (PET)"/>
+      <value enum="3" description="Confirmation"/>
+      <value enum="4" description="Combination of RT and PET"/>
+      <value enum="6" description="Combination of RT, PET and confirmation"/>
+    </field>
+    <field number="1936" name="TradeCollateralization" type="INT">
+      <value enum="0" description="Uncollateralized"/>
+      <value enum="1" description="Partially collateralized"/>
+      <value enum="2" description="One-way collaterallization"/>
+      <value enum="3" description="Fully collateralized"/>
+    </field>
+    <field number="1937" name="TradeContinuation" type="INT">
+      <value enum="0" description="Novation"/>
+      <value enum="1" description="Partial novation"/>
+      <value enum="2" description="Trade unwind - &quot;Trade&quot; includes &quot;Swaps&quot;."/>
+      <value enum="3" description="Partial trade unwind"/>
+    </field>
+    <field number="1950" name="CouponDayCount" type="INT">
+      <value enum="1" description="30/360 (30U/360)"/>
+      <value enum="6" description="Act/360"/>
+      <value enum="7" description="Act/365 FIXED"/>
+      <value enum="8" description="Act/Act AFB"/>
+      <value enum="12" description="BUS/252"/>
+      <value enum="100" description="Act/30"/>
+      <value enum="101" description="Act/30 Compounded - Used for FX deposits"/>
+      <value enum="102" description="Act/360 Compounded - Used for FX deposits"/>
+      <value enum="103" description="Act/365 Compounded - Used for FX deposits"/>
+      <value enum="104" description="Act/Act Compounded - Used for FX deposits"/>
+      <value enum="105" description="BUS/252 Compounded - Used for FX deposits"/>
+    </field>
+    <field number="1959" name="IndexAnnexDate" type="LOCALMKTDATE"/>
+    <field number="2059" name="NoLegEvents" type="NUMINGROUP"/>
+    <field number="2060" name="LegEventType" type="INT">
+      <value enum="2" description="Call"/>
+      <value enum="8" description="Swap start date"/>
+      <value enum="9" description="Swap end date"/>
+      <value enum="20" description="Minimum Notice"/>
+      <value enum="1002" description="Original effective date"/>
+      <value enum="1003" description="Original end date"/>
+    </field>
+    <field number="2061" name="LegEventDate" type="LOCALMKTDATE"/>
+    <field number="2063" name="LegEventTimeUnit" type="STRING">
+      <value enum="D" description="Day"/>
+      <value enum="H" description="Hour"/>
+      <value enum="Min" description="Minute"/>
+      <value enum="Mo" description="Month"/>
+      <value enum="S" description="Second"/>
+      <value enum="Wk" description="Week"/>
+      <value enum="Yr" description="Year"/>
+    </field>
+    <field number="2064" name="LegEventTimePeriod" type="INT"/>
+    <field number="2141" name="StrategyType" type="STRING">
+      <value enum="BDKO" description="Barrier Double Knock-out"/>
+      <value enum="BF" description="Butterfly"/>
+      <value enum="CISN" description="Callable inversible snowball"/>
+      <value enum="CNDR" description="Condor"/>
+      <value enum="CPSP" description="Call/put spread"/>
+      <value enum="CSPD" description="Calendar Spread"/>
+      <value enum="DGSP" description="Diagonal spread"/>
+      <value enum="DNT" description="Double no-touch"/>
+      <value enum="KI" description="Knock-in"/>
+      <value enum="KO" description="Knock-out"/>
+      <value enum="NT" description="No-touch"/>
+      <value enum="OT" description="One-touch"/>
+      <value enum="OTHER" description="Other"/>
+      <value enum="PFWD" description="Participating forward"/>
+      <value enum="RSKR" description="Risk reversal"/>
+      <value enum="SNGL" description="Single leg"/>
+      <value enum="STD" description="Straddle"/>
+      <value enum="STG" description="Strangle"/>
+      <value enum="VAN" description="Vanilla"/>
+    </field>
+    <field number="2153" name="LegAttachmentPoint" type="PERCENTAGE"/>
+    <field number="2154" name="LegDetachmentPoint" type="PERCENTAGE"/>
+    <field number="2174" name="LegIndexAnnexDate" type="LOCALMKTDATE"/>
+    <field number="2192" name="LegSettlMethod" type="CHAR">
+      <value enum="C" description="Cash settlement required"/>
+      <value enum="P" description="Physical settlement required"/>
+    </field>
+    <field number="2218" name="NoLegComplexEvents" type="NUMINGROUP"/>
+    <field number="2219" name="LegComplexEventType" type="INT">
+      <value enum="3" description="Knock-in up"/>
+      <value enum="4" description="Knock-in down"/>
+      <value enum="5" description="Knock-out up"/>
+      <value enum="6" description="Knock-out down"/>
+      <value enum="10" description="One-touch"/>
+    </field>
+    <field number="2227" name="LegComplexEventPrice" type="PRICE"/>
+    <field number="2231" name="LegComplexEventPriceTimeType" type="INT">
+      <value enum="1" description="Expiration"/>
+      <value enum="2" description="Immediate (At Any Time)"/>
+    </field>
+    <field number="2232" name="LegComplexEventCondition" type="INT">
+      <value enum="1" description="And"/>
+      <value enum="2" description="Or"/>
+    </field>
+    <field number="2250" name="NoLegComplexEventDates" type="NUMINGROUP"/>
+    <field number="2251" name="LegComplexEventStartDate" type="UTCDATEONLY"/>
+    <field number="2252" name="LegComplexEventEndDate" type="UTCDATEONLY"/>
+    <field number="2300" name="AllocGrossTradeAmt" type="AMT"/>
+    <field number="2302" name="TradeVersion" type="STRING"/>
+    <field number="2343" name="RiskLimitCheckStatus" type="INT">
+      <value enum="0" description="Accepted - for use when none of the more specific status enumerations apply."/>
+      <value enum="1" description="Rejected - for use when none of the more specific status enumerations apply."/>
+      <value enum="100" description="Unknown"/>
+      <value enum="101" description="Not applicable"/>
+    </field>
+    <field number="2347" name="RegulatoryTransactionType" type="INT">
+      <value enum="0" description="None (default if not specified)"/>
+      <value enum="1" description="Swaps Execution Facility &quot;Required&quot; transaction"/>
+      <value enum="2" description="Swaps Execution Facility &quot;Permitted&quot; transaction"/>
+      <value enum="101" description="Japanese Financial Services Agency (JFSA) designated Electronic Trading Platform transaction"/>
+      <value enum="102" description="Japanese Financial Services Agency (JFSA) non-designated Electronic Trading Platform transaction."/>
+    </field>
+    <field number="2406" name="AllocRegulatoryLegRefID" type="STRING"/>
+    <field number="2411" name="RegulatoryLegRefID" type="STRING"/>
+    <field number="2496" name="LegAgreementDate" type="LOCALMKTDATE"/>
+    <field number="2497" name="LegAgreementDesc" type="STRING"/>
+    <field number="2529" name="NoRelativeValues" type="NUMINGROUP"/>
+    <field number="2530" name="RelativeValueType" type="INT">
+      <value enum="1" description="Asset Swap Spread"/>
+      <value enum="3" description="Zero Volatility Spread"/>
+      <value enum="5" description="Interpolated Spread"/>
+      <value enum="100" description="DV01"/>
+    </field>
+    <field number="2531" name="RelativeValue" type="FLOAT"/>
+    <field number="5020" name="PremiumDeliveryDate" type="LOCALMKTDATE"/>
+    <field number="5224" name="CircleInd" type="BOOLEAN">
+      <value enum="N" description="Final - Default if not specified."/>
+      <value enum="Y" description="Circled"/>
+    </field>
+    <field number="5339" name="OriginalQty" type="QTY"/>
+    <field number="5527" name="AllocationIndicator" type="INT">
+      <value enum="1" description="No allocations are to follow"/>
+      <value enum="2" description="(or higher) - This is a block trade with allocations to follow"/>
+    </field>
+    <field number="5528" name="SalesBook" type="STRING"/>
+    <field number="5533" name="TradeCorrectType" type="STRING">
+      <value enum="IMMAT" description="Not a material change"/>
+      <value enum="MAT" description="Material change"/>
+    </field>
+    <field number="5537" name="CurrentFace" type="QTY"/>
+    <field number="5547" name="AllocCurrentFace" type="FLOAT"/>
+    <field number="5673" name="SettlCurrAccruedInterestAmt" type="AMT"/>
+    <field number="5674" name="SettlCurrNetMoney" type="AMT"/>
+    <field number="5675" name="TaxRate" type="PERCENTAGE"/>
+    <field number="5827" name="OutstandingQty" type="QTY"/>
+    <field number="5830" name="PremiumCurrency" type="CURRENCY"/>
+	<field number="830" name="TransferReason" type="STRING"/>
+    <field number="5844" name="NetPremiumAmount" type="AMT"/>
+    <field number="5975" name="OrderLinkID" type="STRING"/>
+    <field number="6203" name="FixingDate" type="UTCDATEONLY"/>
+    <field number="6215" name="Tenor" type="TENOR"/>
+    <field number="6223" name="NoUnderlyingReinvCoupon" type="NUMINGROUP"/>
+    <field number="6224" name="UnderlyingReinvCouponDate" type="LOCALMKTDATE"/>
+    <field number="6225" name="UnderlyingReinvCouponRate" type="PERCENTAGE"/>
+    <field number="6226" name="UnderlyingReinvCouponAmt" type="AMT"/>
+    <field number="6293" name="UnderlyingStartAcrdIntAmt" type="AMT"/>
+    <field number="6294" name="UnderlyingEndAcrdIntAmt" type="AMT"/>
+    <field number="6351" name="StrategyPosition" type="INT">
+      <value enum="0" description="Same as strategy"/>
+      <value enum="1" description="Opposite to strategy"/>
+    </field>
+    <field number="6378" name="BLPProgType" type="STRING"/>
+    <field number="6379" name="AdjustedEndCash" type="AMT"/>
+    <field number="6384" name="CalcAgentLocation" type="STRING"/>
+    <field number="6385" name="MatrixAgreementType" type="STRING"/>
+    <field number="6504" name="AllocAgreementDesc" type="STRING"/>
+    <field number="6505" name="AllocAgreementDate" type="LOCALMKTDATE"/>
+    <field number="6506" name="AllocCalcAgentLocation" type="STRING"/>
+    <field number="6507" name="AllocMatrixAgreementType" type="STRING"/>
+    <field number="6508" name="AllocMCAAnnexDate" type="LOCALMKTDATE"/>
+    <field number="6622" name="BenchmarkYield" type="PERCENTAGE"/>
+    <field number="6632" name="BenchmarkSecurityDesc" type="STRING"/>
+    <field number="6666" name="HedgeDirection" type="INT">
+      <value enum="1" description="Buy"/>
+      <value enum="2" description="Sell"/>
+    </field>
+    <field number="6730" name="MultilegPartNum" type="STRING"/>
+    <field number="6749" name="UpFrontFee" type="AMT"/>
+    <field number="6812" name="ActionType" type="STRING">
+      <value enum="N" description="New (default)"/>
+      <value enum="R" description="Roll"/>
+    </field>
+	<field number="6813" name="Unknown6813" type="STRING"/>
+    <field number="7014" name="RecipientRole" type="INT">
+      <value enum="3" description="Destination of trade (dealer)"/>
+      <value enum="21" description="Submitter of trade (Buy-side)"/>
+    </field>
+    <field number="7220" name="PortfolioName" type="STRING"/>
+    <field number="8657" name="HedgeRate" type="FLOAT"/>
+    <field number="9009" name="TradingSystemTicketNumber" type="STRING"/>
+    <field number="9015" name="ExecDeltaHedge" type="BOOLEAN">
+      <value enum="N" description="No"/>
+      <value enum="Y" description="Yes"/>
+    </field>
+    <field number="9016" name="HedgeTradeType" type="INT">
+      <value enum="1" description="Spot hedge"/>
+      <value enum="2" description="Forward hedge"/>
+      <value enum="3" description="Custom"/>
+    </field>
+    <field number="9034" name="PutOrCallCurrency" type="CURRENCY"/>
+	<field number="572" name="TradeReportRefID" type="STRING"/>
+	<field number="881" name="SecondaryTradeReportRefID" type="STRING"/>
+	<field number="818" name="SecondaryTradeReportID" type="STRING"/>
+	<field number="820" name="TradeLinkID" type="STRING"/>
+	<field number="880" name="TrdMatchID" type="STRING"/>
+    <field number="9102" name="MarketType" type="CHAR">
+      <value enum="N" description="Onshore"/>
+      <value enum="O" description="Offshore"/>
+      <value enum="R" description="Regular"/>
+    </field>
+    <field number="9112" name="HedgeDate" type="LOCALMKTDATE"/>
+    <field number="9123" name="HedgeAmount" type="AMT"/>
+	<field number="263" name="SubscriptionRequestType" type="CHAR">
+      <value enum="0" description="SNAPSHOT"/>
+      <value enum="1" description="SNAPSHOT_PLUS_UPDATES"/>
+      <value enum="2" description="DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST"/>
+    </field>
+    <field number="9263" name="ActionCode" type="INT">
+      <value enum="0" description="New (the default)"/>
+      <value enum="1" description="No change"/>
+      <value enum="2" description="Correct"/>
+    </field>
+    <field number="9503" name="FlatFlag" type="BOOLEAN">
+      <value enum="N" description="Dirty"/>
+      <value enum="Y" description="Clean (default if not specified)"/>
+    </field>
+    <field number="9534" name="UnsolicitedFlag" type="BOOLEAN">
+      <value enum="N" description="Solicited"/>
+      <value enum="Y" description="Unsolicited"/>
+    </field>
+    <field number="9536" name="TraderBook" type="STRING"/>
+    <field number="9610" name="NoNotes" type="NUMINGROUP"/>
+    <field number="9611" name="NoteType" type="STRING">
+      <value enum="C" description="Customer note"/>
+      <value enum="D" description="Dealer Note"/>
+      <value enum="I" description="Private/Internal Note"/>
+    </field>
+    <field number="9612" name="NoteLabel" type="STRING"/>
+    <field number="9613" name="NoteText" type="STRING"/>
+    <field number="9654" name="BLPTicketType" type="STRING"/>
+    <field number="9876" name="SwapTradeType" type="INT">
+      <value enum="1" description="Outright (Cash)"/>
+      <value enum="2" description="Rolls"/>
+      <value enum="3" description=" Swap/Switch"/>
+      <value enum="4" description="Hedge"/>
+    </field>
+    <field number="9896" name="PricingNo" type="STRING"/>
+    <field number="9902" name="BLOTSequenceNumber" type="INT"/>
+    <field number="9906" name="Application" type="STRING">
+      <value enum="IB" description="IB"/>
+      <value enum="OX" description="OX"/>
+      <value enum="Voice" description="Voice"/>
+    </field>
+    <field number="10009" name="NoCompDealerQuotes" type="NUMINGROUP"/>
+    <field number="10010" name="CompDealerID" type="STRING"/>
+    <field number="10011" name="CompDealerQuotePrice" type="PRICE"/>
+    <field number="10012" name="CompDealerQuotePriceType" type="INT">
+      <value enum="1" description="Percent of par"/>
+      <value enum="2" description="Per unit (i.e. per share or contract)"/>
+      <value enum="3" description="Fixed amount"/>
+      <value enum="4" description="Discount - percentage points below par"/>
+      <value enum="6" description="Spread"/>
+      <value enum="9" description="Yield"/>
+      <value enum="23" description="Upfront points"/>
+      <value enum="24" description="Interest rate"/>
+      <value enum="103" description="Percentage of premium currency"/>
+    </field>
+    <field number="10015" name="CompDealerParQuote" type="PRICE"/>
+    <field number="20001" name="HedgeCalcType" type="INT">
+      <value enum="1" description="Bloomberg auto-calculated (Risk Weighted)"/>
+      <value enum="2" description="Manually input by Dealer"/>
+    </field>
+    <field number="22014" name="TrdContinuation" type="INT">
+      <value enum="0" description="Novation"/>
+      <value enum="1" description="Partial novation"/>
+      <value enum="2" description="Swap unwind"/>
+      <value enum="3" description="Partial swap unwind"/>
+    </field>
+    <field number="22015" name="LegTrdContinuation" type="CHAR">
+      <value enum="0" description="Novation"/>
+      <value enum="1" description="Partial novation"/>
+      <value enum="2" description="Swap unwind"/>
+      <value enum="3" description="Partial swap unwind"/>
+    </field>
+    <field number="22037" name="DealerNetMoney" type="AMT"/>
+    <field number="22039" name="TradePurpose" type="STRING">
+      <value enum="A" description="Assign"/>
+      <value enum="B" description="BlockOpen"/>
+      <value enum="C" description="Buy Close"/>
+      <value enum="D" description="Deliver"/>
+      <value enum="E" description="Deliver Options"/>
+      <value enum="F" description="Future Exercise Assign Open"/>
+      <value enum="H" description="Exchange for Physical Close"/>
+      <value enum="I" description="Exchange Risk Close"/>
+      <value enum="J" description="Spread Trade Open"/>
+      <value enum="K" description="SpreadTradeClose"/>
+      <value enum="L" description="Block Close"/>
+      <value enum="O" description="Buy Open"/>
+      <value enum="P" description="Exchange for Physical Open"/>
+      <value enum="R" description="ExchangeRiskOpen"/>
+      <value enum="S" description="Cash Settlement"/>
+      <value enum="U" description="Future Exercise Assign Close"/>
+      <value enum="X" description="Expire"/>
+    </field>
+    <field number="22052" name="LastMidPrice" type="PRICE"/>
+    <field number="22053" name="MidPriceType" type="INT">
+      <value enum="1" description="Percent of par"/>
+      <value enum="2" description="Per unit (i.e. per share or contract)"/>
+      <value enum="4" description="Discount - percentage points below par"/>
+      <value enum="6" description="Spread"/>
+      <value enum="9" description="Yield"/>
+      <value enum="23" description="Upfront points"/>
+      <value enum="103" description="Percentage of premium currency"/>
+    </field>
+    <field number="22074" name="LastNotional" type="QTY"/>
+    <field number="22075" name="SalesCredit" type="AMT"/>
+    <field number="22078" name="NoRefPrices" type="NUMINGROUP"/>
+    <field number="22079" name="RefPrice" type="PRICE"/>
+    <field number="22080" name="RefPriceType" type="INT">
+      <value enum="1" description="Percent of par"/>
+      <value enum="2" description="Per unit (i.e. per share or contract)"/>
+      <value enum="3" description="Fixed amount"/>
+      <value enum="4" description="Discount - percentage points below par"/>
+      <value enum="6" description="Spread"/>
+      <value enum="9" description="Yield"/>
+      <value enum="23" description="Upfront points"/>
+      <value enum="103" description="Percentage of premium currency"/>
+    </field>
+	<field number="22081" name="RefPriceSource" type="INT">
+      <value enum="0" description="CBBT"/>
+      <value enum="1" description="Dealer&apos;s current quoted price on the trading platform"/>
+      <value enum="2" description="BVAL"/>
+      <value enum="3" description="BGN"/>
+      <value enum="4" description="User provided price"/>
+    </field>
+	<field number="22099" name="CustomTag" type="INT"/>
+    <field number="22102" name="MadeAvailableForTradingIndicator" type="INT">
+      <value enum="0" description="Non-MAT security (default if not specified)"/>
+      <value enum="1" description="MAT security"/>
+    </field>
+    <field number="22106" name="TypeOfPrice" type="INT">
+      <value enum="1" description="Price includes tax (relevant for JGB)"/>
+      <value enum="2" description="Price excludes tax (relevant for JGB)"/>
+    </field>
+    <field number="22109" name="MandatoryToClearDF" type="BOOLEAN"/>
+    <field number="22114" name="AuctionMethod" type="INT">
+      <value enum="1" description="Auction bidding based on price and quantity submitted (i.e. competitive auction)"/>
+      <value enum="2" description="Auction bidding based on quantity submitted (i.e. non-competitive auction)"/>
+      <value enum="3" description="Mixed (i.e. auction is a mix of competitive and non-competitive auction)"/>
+    </field>
+    <field number="22115" name="AuctionName" type="STRING"/>
+    <field number="22116" name="OfferingType" type="INT">
+      <value enum="1" description="Primary offering"/>
+      <value enum="2" description="Secondary offering"/>
+    </field>
+    <field number="22150" name="RefPriceSide" type="INT">
+      <value enum="0" description="Bid"/>
+      <value enum="1" description="Ask"/>
+    </field>
+    <field number="22152" name="PreAllocStrategyName" type="STRING"/>
+    <field number="22156" name="RefPriceText" type="STRING"/>
+    <field number="22159" name="Ccy1MarketType" type="CHAR">
+      <value enum="N" description="Non-deliverable"/>
+      <value enum="O" description="On-shore"/>
+      <value enum="R" description="Regular / Off-shore"/>
+    </field>
+    <field number="22160" name="Ccy2MarketType" type="CHAR">
+      <value enum="N" description="Non-deliverable"/>
+      <value enum="O" description="On-shore"/>
+      <value enum="R" description="Regular / Off-shore"/>
+    </field>
+    <field number="22161" name="CompDealerQuotePriceLeg2" type="PRICE"/>
+    <field number="22162" name="CompDealerQuoteForwardPoints" type="PRICEOFFSET"/>
+    <field number="22163" name="CompDealerQuoteSwapPoints" type="PRICEOFFSET"/>
+    <field number="22164" name="RefPriceleg2" type="PRICE"/>
+    <field number="22165" name="RefPriceForwardPoints" type="PRICEOFFSET"/>
+    <field number="22166" name="RefPriceSwapPoints" type="PRICEOFFSET"/>
+    <field number="22168" name="LegPriceDelta" type="FLOAT"/>
+    <field number="22169" name="LegBaseInstrument" type="INT">
+      <value enum="0" description="Not primary leg"/>
+      <value enum="1" description="Primary leg"/>
+    </field>
+    <field number="22179" name="CompDealerQuoteOrdQty" type="AMT"/>
+    <field number="22184" name="ChatID" type="STRING"/>
+    <field number="22194" name="DaysToTerm" type="INT"/>
+    <field number="22205" name="LegSettlCurrAmt" type="AMT"/>
+    <field number="22206" name="LegSettlCurrFxRate" type="FLOAT"/>
+    <field number="22207" name="LegSettlCurrFxRateCalc" type="CHAR">
+      <value enum="D" description="Divide"/>
+      <value enum="M" description="Multiply"/>
+    </field>
+    <field number="22210" name="RepositoryReportingIndicator" type="INT">
+      <value enum="0" description="Not reported"/>
+      <value enum="1" description="Reported to a repository"/>
+    </field>
+    <field number="22224" name="ComplexRebate" type="AMT"/>
+    <field number="22225" name="LegPutOrCallCurrency" type="CURRENCY"/>
+    <field number="22226" name="OptionExerciseDeliveryDate" type="LOCALMKTDATE"/>
+    <field number="22227" name="LegStrategyPosition" type="INT">
+      <value enum="0" description="Same as strategy"/>
+      <value enum="1" description="Opposite to strategy"/>
+    </field>
+    <field number="22228" name="LegComplexRebate" type="AMT"/>
+    <field number="22230" name="LegOptionExerciseDeliveryDate" type="LOCALMKTDATE"/>
+    <field number="22250" name="NoPriceQualifiers" type="NUMINGROUP"/>
+    <field number="22251" name="PriceQualifier" type="INT">
+      <value enum="1" description="Dirty price"/>
+      <value enum="2" description="Tax is factored into the price"/>
+    </field>
+    <field number="22252" name="OptionHashID" type="STRING"/>
+    <field number="22255" name="MarkitWireBetaTradeID" type="STRING"/>
+    <field number="22256" name="PricedToClearCCP" type="STRING"/>
+    <field number="22257" name="MandatoryToClearEMIR" type="BOOLEAN"/>
+    <field number="22262" name="CalculatedCurrency" type="CURRENCY"/>
+    <field number="22263" name="LegCalculatedCurrency" type="CURRENCY"/>
+    <field number="22264" name="LegOptionHashID" type="STRING"/>
+    <field number="22265" name="HedgeCurrency" type="CURRENCY"/>
+    <field number="23002" name="LegPremiumSettlCurrency" type="CURRENCY"/>
+    <field number="23003" name="LegPremiumSettlCurrAmt" type="AMT"/>
+    <field number="23004" name="PremiumSettlCurrAmt" type="AMT"/>
+    <field number="23005" name="PremiumSettlCurrency" type="CURRENCY"/>
+    <field number="23007" name="LegPremium" type="AMT"/>
+    <field number="40040" name="NoContractualDefinitions" type="NUMINGROUP"/>
+    <field number="40041" name="ContractualDefinition" type="STRING">
+      <value enum="ISDA2003Credit" description="ISDA 2003 Credit Derivatives Definitions"/>
+      <value enum="ISDA2014Credit" description="ISDA 2014 Credit Derivatives Definitions"/>
+    </field>
+    <field number="40049" name="NoStreams" type="NUMINGROUP"/>
+    <field number="40050" name="StreamType" type="INT">
+      <value enum="0" description="Payment / cash settlement"/>
+    </field>
+    <field number="40072" name="StreamTerminationDateAdjusted" type="LOCALMKTDATE"/>
+    <field number="40079" name="StreamFirstRegularPeriodStartDateUnadjusted" type="LOCALMKTDATE"/>
+    <field number="40081" name="StreamLastRegularPeriodEndDateUnadjusted" type="LOCALMKTDATE"/>
+    <field number="40738" name="PaymentStreamType" type="INT">
+      <value enum="100" description="Periodic fixed rate"/>
+      <value enum="101" description="Periodic floating rate"/>
+    </field>
+    <field number="40753" name="PaymentStreamPaymentFrequencyPeriod" type="INT"/>
+    <field number="40754" name="PaymentStreamPaymentFrequencyUnit" type="STRING">
+      <value enum="D" description="Day"/>
+      <value enum="Mo" description="Month"/>
+      <value enum="T" description="Term"/>
+      <value enum="Wk" description="Week"/>
+      <value enum="Yr" description="Year"/>
+    </field>
+    <field number="40764" name="PaymentStreamResetFrequencyPeriod" type="INT"/>
+    <field number="40765" name="PaymentStreamResetFrequencyUnit" type="STRING">
+      <value enum="D" description="Day"/>
+      <value enum="Mo" description="Month"/>
+      <value enum="T" description="Term"/>
+      <value enum="Wk" description="Week"/>
+      <value enum="Yr" description="Year"/>
+    </field>
+    <field number="40914" name="StreamEffectiveDateAdjusted" type="LOCALMKTDATE"/>
+    <field number="40921" name="BusinessDayConvention" type="INT">
+      <value enum="0" description="Not applicable"/>
+      <value enum="1" description="None"/>
+      <value enum="2" description="Following day"/>
+      <value enum="3" description="Floating rate note"/>
+      <value enum="4" description="Modified following day"/>
+      <value enum="5" description="Preceding day"/>
+      <value enum="6" description="Modified preceding day"/>
+      <value enum="7" description="Nearest day"/>
+    </field>
+	
+     <field number="40922" name="DateRollConvention" type="STRING">
+      <value enum="1" description="1st day of the month"/>
+      <value enum="2" description="2nd day of the month"/>
+      <value enum="3" description="3rd day of the month"/>
+      <value enum="4" description="4th day of the month"/>
+      <value enum="5" description="5th day of the month"/>
+      <value enum="6" description="6th day of the month"/>
+      <value enum="7" description="7th day of the month"/>
+      <value enum="8" description="8th day of the month"/>
+      <value enum="9" description="9th day of the month"/>
+      <value enum="10" description="10th day of the month"/>
+      <value enum="11" description="11th day of the month"/>
+      <value enum="12" description="12th day of the month"/>
+      <value enum="13" description="13th day of the month"/>
+      <value enum="14" description="14th day of the month"/>
+      <value enum="15" description="15th day of the month"/>
+      <value enum="16" description="16th day of the month"/>
+      <value enum="17" description="17th day of the month"/>
+      <value enum="18" description="18th day of the month"/>
+      <value enum="19" description="19th day of the month"/>
+      <value enum="20" description="20th day of the month"/>
+      <value enum="21" description="21st day of the month"/>
+      <value enum="22" description="22nd day of the month"/>
+      <value enum="23" description="23rd day of the month"/>
+      <value enum="24" description="24th day of the month"/>
+      <value enum="25" description="25th day of the month"/>
+      <value enum="26" description="26th day of the month"/>
+      <value enum="27" description="27th day of the month"/>
+      <value enum="28" description="28th day of the month"/>
+      <value enum="29" description="29th day of the month"/>
+      <value enum="30" description="30th day of the month"/>
+      <value enum="ECB" description="European Central Bank (ECB) settlement dates"/>
+      <value enum="EOM" description="The end of the month."/>
+      <value enum="FRN" description="The floating rate note convention or Eurodollar convention."/>
+      <value enum="IMM" description="The International Money Market settlement date, i.e. the 3rd Wednesday of the month."/>
+      <value enum="NONE" description="No adjustment"/>
+    </field>
+    <field number="41135" name="OptionExerciseLatestTime" type="LOCALMKTTIME"/>
+    <field number="41136" name="OptionExerciseTimeBusinessCenter" type="STRING"/>
+    <field number="41510" name="LegOptionExerciseLatestTime" type="LOCALMKTTIME"/>
+    <field number="41511" name="LegOptionExerciseTimeBusinessCenter" type="STRING"/>
+  </fields>
+</fix>

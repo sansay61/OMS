@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OrderManagementSystem.Areas.OMS.Models.Security>
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "BuyIndex";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+<h2>FX Operations</h2>
+<br>
+@(Html.Kendo().Grid<OrderManagementSystem.Areas.OMS.Models.Fx>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.OrderID).Width(160);
+            columns.Bound(c => c.TradeDate).Width(120);
+            columns.Bound(c => c.SettlDate).Width(120);
+            columns.Bound(c => c.Currency).Width(140);
+            columns.Bound(c => c.CurrencyAmt).Width(140);
+            columns.Bound(c => c.SettlCurrency).Width(140);
+            columns.Bound(c => c.SettlCurrencyAmt).Width(140);
+            columns.Bound(c => c.LastPx).Width(140);
+            columns.Bound(c => c.isFXSwap).Width(80);
+            columns.Bound(c => c.Counterparty).Width(120);
+        })
+        .Filterable(filterable => filterable
+        .Extra(false)
+            .Operators(operators => operators
+            .ForString(str => str.Clear()
+                .StartsWith("Starts with")
+                .IsEqualTo("Is equal to")
+                .IsNotEqualTo("Is not equal to")
+            ))
+        )
+        .HtmlAttributes(new { style = "height: 768px; width:100%;" })
+        .Scrollable()
+        .Groupable()
+        .Sortable()
+
+        .Resizable(resizable => resizable.Columns(true))
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Aggregates(aggregates =>
+            {
+                aggregates.Add(p => p.TradeDate).Count();
+
+            })
+            .Read(read => read.Action("BuyRead", "Fx"))
+            .PageSize(20)
+        )
+
+)

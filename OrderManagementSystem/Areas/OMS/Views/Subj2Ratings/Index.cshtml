@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OrderManagementSystem.Areas.OMS.Models.Subj2ratinglinks>
+
+@{
+    ViewBag.Title = "Subjects rating";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Subjects rating</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display table-bordered" id="tbid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Subjects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings.Snp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings.Moodys)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings.Fitch)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Subjects.Shortname)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Ratings.Snp)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Ratings.Moodys)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Ratings.Fitch)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () { $('#tbid').DataTable(); });
+</script>

@@ -1,0 +1,118 @@
+﻿@model OrderManagementSystem.Areas.OMS.Models.Liminstrument
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Liminstrument</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrencyId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CurrencyId,(SelectList)ViewBag.currencies)
+                @Html.ValidationMessageFor(model => model.CurrencyId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InstrumentId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.InstrumentId,(SelectList)ViewBag.Instruments)
+                @Html.ValidationMessageFor(model => model.InstrumentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InstrumentTermId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Instrumentterms,(SelectList)ViewBag.instrumentterms)
+                @Html.ValidationMessageFor(model => model.InstrumentTermId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aimpercent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Aimpercent)
+                @Html.ValidationMessageFor(model => model.Aimpercent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Maxduration, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Maxduration)
+                @Html.ValidationMessageFor(model => model.Maxduration)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Startdate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Startdate)
+                @Html.ValidationMessageFor(model => model.Startdate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enddate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Enddate)
+                @Html.ValidationMessageFor(model => model.Enddate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Version)
+                @Html.ValidationMessageFor(model => model.Version)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Iscurrent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Iscurrent)
+                @Html.ValidationMessageFor(model => model.Iscurrent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Chtimestamp, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Chtimestamp)
+                @Html.ValidationMessageFor(model => model.Chtimestamp)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Inid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Inid)
+                @Html.ValidationMessageFor(model => model.Inid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

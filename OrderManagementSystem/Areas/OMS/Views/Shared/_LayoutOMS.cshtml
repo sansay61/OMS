@@ -1,0 +1,116 @@
+﻿@using Kendo.Mvc.UI
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Order Management System</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendo")
+
+    
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("OMS", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Операции <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("FX", "Index", "FX")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Deposits</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Buy", "BuyIndex", "Deposits")</li>
+                                    <li>@Html.ActionLink("Sell", "SellIndex", "Deposits")</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Securities</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Buy", "BuyIndex", "Securities")</li>
+                                    <li>@Html.ActionLink("Sell", "SellIndex", "Securities")</li>
+                                </ul>
+                            </li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Лимиты <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("По категориям контрагентов (1)", "Index", "LimCounterpartyType")</li>
+                                    <li>@Html.ActionLink("По валютной структуре (2)", "Index", "LimCurrencyStructure")</li>
+                                    <li>@Html.ActionLink("По раб. и инв. портфелю и дюрации (3)", "Index", "LimWorkInvPortDuration")</li>
+                                    <li>@Html.ActionLink("По срочности инструментов (4)", "Index", "LimInstrumentDuration")</li>
+                                    <li>@Html.ActionLink("По инструментам (5)", "Index", "LimInstrument")</li>
+                                    <li>@Html.ActionLink("По секторному распределению (6)", "Index", "LimDistCPtype")</li>
+                                    <li>@Html.ActionLink("По средневзвешенной дюрации (7)", "Index", "LimWeightedDuration")</li>
+                                    <li>@Html.ActionLink("По рейтингам контрагентов (9)", "Index", "LimInstrumentRating")</li>
+                                    <li>@Html.ActionLink("Ежемесячные (10)", "Index", "LimCurrencyMonthVolume")</li>
+                                    <li>@Html.ActionLink("Еженедельные (11)", "Index", "LimDealer")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">FIX <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Управление", "Managing", "Fix")</li>
+                            <li>@Html.ActionLink("Логи", "Logging", "Fix")</li>
+                            <li>@Html.ActionLink("Настройка", "Settings", "Fix")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Безопасность <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Группы</a></li>
+                            <li><a href="#">Пользователи</a></li>
+                            <li><a href="#">Права</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Администрирование <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Справочники</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Assets", "Index", "Assets")</li>
+                                    <li>@Html.ActionLink("Currencies", "Index", "Currencies")</li>
+                                    <li>@Html.ActionLink("Subjects", "Index", "Subjects")</li>
+                                    <li>@Html.ActionLink("Exrates", "Index", "Exrates")</li>
+                                    <li>@Html.ActionLink("Subject ratings", "Index", "Subj2Ratings")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-text">Hello, @User.Identity.Name!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Order Management System</p>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

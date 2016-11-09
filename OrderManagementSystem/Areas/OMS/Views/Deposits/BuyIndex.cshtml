@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OrderManagementSystem.Areas.OMS.Models.Er>
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+<h2>Depo buy</h2>
+<br>
+@(Html.Kendo().Grid<OrderManagementSystem.Areas.OMS.Models.Er>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.Orderid).Width(160);
+            columns.Bound(c => c.Tradedate).Width(120);
+            columns.Bound(c => c.Settldate).Width(120);
+            columns.Bound(c => c.Maturitydate).Width(140);
+            columns.Bound(c => c.Orderqty).Width(140);
+            columns.Bound(c => c.Avgpx).Width(140);
+            columns.Bound(c => c.Numdaysinterest).Width(140);
+            columns.Bound(c => c.Accruedinterestamount).Width(140);
+            columns.Bound(c => c.Currency).Width(80);
+        })
+        .Filterable(filterable => filterable
+        .Extra(false)
+            .Operators(operators => operators
+            .ForString(str => str.Clear()
+                .StartsWith("Starts with")
+                .IsEqualTo("Is equal to")
+                .IsNotEqualTo("Is not equal to")
+            ))
+        )
+        .HtmlAttributes(new { style = "height: 768px; width:100%;" })
+        .Scrollable()
+        .Groupable()
+        .Sortable()
+
+        .Resizable(resizable => resizable.Columns(true))
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()            
+            .Read(read => read.Action("BuyRead", "Deposits"))
+            .PageSize(20)
+        )
+
+)
+
+

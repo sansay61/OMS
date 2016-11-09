@@ -1,0 +1,46 @@
+﻿@model IEnumerable<OrderManagementSystem.Areas.OMS.Models.Exrates>
+
+@{
+    ViewBag.Title = "Exrates index";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="display table-bordered" id="tbid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pricedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currencies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pricedate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currencies.Iso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<script type="text/javascript">
+    $(document).ready(function () { $('#tbid').DataTable(); });
+</script>

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<OrderManagementSystem.Areas.OMS.Models.Subjects>
+
+@{
+    ViewBag.Title = "Subjects index";
+    Layout = "~/Areas/OMS/Views/Shared/_LayoutOMS.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display table-bordered" id="tbid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Opendate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Closedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shortname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subjectname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Internationalname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Statuses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subjecttypes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iscurrent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chtimestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opendate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Closedate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shortname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subjectname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Internationalname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statuses.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subjecttypes.Shortname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Iscurrent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chtimestamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inid)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () { $('#tbid').DataTable(); });
+</script>
